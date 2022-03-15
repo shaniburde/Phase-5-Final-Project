@@ -1,0 +1,2 @@
+class OutfitCategoriesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class OutfitCategory < ApplicationRecord
+end

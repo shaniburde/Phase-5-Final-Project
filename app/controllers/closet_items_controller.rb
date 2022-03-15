@@ -1,0 +1,2 @@
+class ClosetItemsController < ApplicationController
+end
