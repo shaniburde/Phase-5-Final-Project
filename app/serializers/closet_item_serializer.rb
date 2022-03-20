@@ -3,3 +3,4 @@ class ClosetItemSerializer < ActiveModel::Serializer
   has_one :user
   has_one :item_category
 end
+ 
