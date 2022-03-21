@@ -11,17 +11,49 @@ export default function ClosetContainer({ user }) {
           .then((closetData) => {setData(closetData)});
       }, []);
     
-      const closetList = [...data]
-      .map((closetItem) => 
-            <ClosetItem
-              key={closetItem.id} 
-              id={closetItem.id}
-              closetItem={closetItem}
-            />
-        ) 
+      function handleDeleteClosetItem(closetItemId){
+          const updatedClosetItems = data.filter((item) => {
+              if (item.id !== closetItemId) {
+                  return item
+                } else {
+                    return null
+                }
+            });
+            setData(updatedClosetItems);
+        }
+        
+        function addNewClosetItem(newClosetItem){
+            setData((prevState) => [...prevState, newClosetItem])
+        }
+        
+        function handleUpdateClosetItem(updatedClosetItemObj) {
+            const editedClosetItems = data.map((item) => {
+                if (item.id === updatedClosetItemObj.id) {
+                    return updatedClosetItemObj;
+                } else {
+                    return item;
+                }
+            });
+            setData(editedClosetItems);
+        }
+        
+        const closetList = [...data]
+          .map((closetItem) => 
+                <ClosetItem
+                  key={closetItem.id} 
+                  id={closetItem.id}
+                  closetItem={closetItem}
+                  handleDeleteClosetItem={handleDeleteClosetItem}
+                  handleUpdateClosetItem={handleUpdateClosetItem}
+                />
+            ) 
   return (
     <div className="closet-container">
-        <ClosetItemForm user={user} />
+        <ClosetItemForm 
+            user={user} 
+            addNewClosetItem={addNewClosetItem}
+            handleUpdateClosetItem={handleUpdateClosetItem}
+        />
         {closetList}
     </div>
   )

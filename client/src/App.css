@@ -21,6 +21,7 @@
   background-color: rgb(234, 148, 255);
 }
  img{
+   border-radius: 20px;
    width: 20%;
    height: 20%;
  }

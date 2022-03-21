@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Error, Input, FormField, Label } from "./styles";
 import { useNavigate } from "react-router-dom";
 
-export default function ClosetItemForm({ user }) {
+export default function ClosetItemForm({ user, addNewClosetItem }) {
     const [image, setImage] = useState("")
     const [color, setColor] = useState("")
     const [description, setDescription] = useState("")
@@ -27,6 +27,8 @@ export default function ClosetItemForm({ user }) {
     const categoryOptions = categoryData.map(({ id, item_type}) => 
     <option key={id} value={id}>{item_type}</option> )
 
+   
+
     function handleSubmit(e){
         e.preventDefault();
         setIsLoading(true);
@@ -48,7 +50,7 @@ export default function ClosetItemForm({ user }) {
               .then((r) => {
                 setIsLoading(false);
               if (r.ok) {
-                r.json().then((data) => console.log(data));
+                r.json().then((data) => addNewClosetItem(data));
               } else {
                 r.json().then((err) => setErrors(err.errors));
               }})
