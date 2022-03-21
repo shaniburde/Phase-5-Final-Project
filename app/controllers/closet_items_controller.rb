@@ -1,4 +1,5 @@
 class ClosetItemsController < ApplicationController
+    # @current_user = User.find_by(id: session[:user_id])
 
     def index 
         closet_items = ClosetItem.all
@@ -34,7 +35,11 @@ class ClosetItemsController < ApplicationController
     end
 
     def closet_item_params 
-        params.permit(:image, :color, :description, :brand, :date_purchased, :purchase_price, :item_category_id)
+        params.permit(:image, :color, :description, :brand, :date_purchased, :purchase_price, :item_category_id, :user_id)
+    end
+
+    def get_user_closet_items
+        # ClosetItem.find_by(user_id: @current_user.id)
     end
 end
 

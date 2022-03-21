@@ -1,4 +1,4 @@
-
+/* 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -12,7 +12,7 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 .App-header{
   font-size: 45px;
@@ -20,3 +20,7 @@
   color: rgb(86, 78, 206);
   background-color: rgb(234, 148, 255);
 }
+ img{
+   width: 20%;
+   height: 20%;
+ }

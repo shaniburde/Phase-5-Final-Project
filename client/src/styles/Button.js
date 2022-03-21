@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const COLORS = {
   primary: {
-    "--main": "deepskyblue",
+    "--main": "pink",
     "--accent": "white",
   },
   secondary: {
     "--main": "white",
-    "--accent": "lightblue",
+    "--accent": "pink",
   },
 };
 
@@ -35,17 +35,18 @@ const ButtonBase = styled.button`
 `;
 
 const FillButton = styled(ButtonBase)`
-  background-color: white;
-  color: darkblue;
+  background-color: #4B072E;
+  color: white;
 
   &:hover {
+    color: #F4F4F6;
     opacity: 0.9;
   }
 `;
 
 const OutlineButton = styled(ButtonBase)`
   background-color: white;
-  color: darkblue;
+  color: #6E688D;
   border: 2px solid var(--main);
 
   &:hover {

@@ -1,13 +1,10 @@
-import React from 'react'
+import React from 'react';
+import ClosetContainer from './ClosetContainer';
 
-export default function MainContainer() {
+export default function MainContainer({ user }) {
   return (
     <div className="main-container">
-      This is the main container that will house all of the closet items.
-      <li>Shirt</li>
-      <li>Skirt</li>
-      <li>Sneakers</li>
-      <li>Sunglasses</li>
+      <ClosetContainer user={user}/>
     </div>
   )
 }
