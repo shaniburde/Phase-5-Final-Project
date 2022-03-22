@@ -30,7 +30,7 @@ class OutfitsController < ApplicationController
     private 
 
     def find_outfit
-        Oufit.find(params[:id])
+        @current_user.outfits.find(params[:id])
     end
 
     def outfit_params 
