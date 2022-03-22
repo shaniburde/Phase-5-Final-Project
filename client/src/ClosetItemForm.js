@@ -1,9 +1,9 @@
 // import { Select } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { Button, Error, Input, FormField, Label } from "./styles";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-export default function ClosetItemForm({ user, addNewClosetItem }) {
+export default function ClosetItemForm({ user, addNewClosetItem, setAddItem, addItem }) {
     const [image, setImage] = useState("")
     const [color, setColor] = useState("")
     const [description, setDescription] = useState("")
@@ -14,7 +14,7 @@ export default function ClosetItemForm({ user, addNewClosetItem }) {
     const [categoryData, setCategoryData] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
 
     useEffect(() => {
@@ -54,7 +54,7 @@ export default function ClosetItemForm({ user, addNewClosetItem }) {
               } else {
                 r.json().then((err) => setErrors(err.errors));
               }})
-              .then(navigate("*", { replace: true }))
+              setAddItem((addItem) => !addItem)
               setImage("")
               setColor("")
               setDescription("")
@@ -126,7 +126,7 @@ export default function ClosetItemForm({ user, addNewClosetItem }) {
       <FormField>
         <Label htmlFor="purchasePrice">Purchase Price</Label>
         <Input
-          type="text"
+          type="float"
           id="purchasePrice"
           autoComplete="off"
           value={purchasePrice}

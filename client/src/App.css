@@ -20,8 +20,25 @@
   color: rgb(86, 78, 206);
   background-color: rgb(234, 148, 255);
 }
- img{
+img{
    border-radius: 20px;
    width: 20%;
    height: 20%;
  }
+.closet-container{
+  display: inline-flex; 
+  flex-direction: row;
+  flex-flow: column wrap;
+  flex-grow: 4;
+  align-content: space-between ;
+  gap: 10px;
+  gap: 10px 20px;
+  row-gap: 10px;
+  column-gap: 20px;
+}
+.closet-item{
+  order: 5;
+  flex-basis: auto;
+  flex-shrink: 3;
+}
+

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Error, Input, FormField, Label } from "./styles";
-import { useNavigate } from "react-router-dom";
+
 
 
 export default function EditClosetItem({ setIsEditing, handleUpdateClosetItem, closetItem }) {
@@ -121,7 +121,7 @@ export default function EditClosetItem({ setIsEditing, handleUpdateClosetItem, c
         <FormField>
             <Label htmlFor="purchasePrice">Purchase Price</Label>
             <Input
-            type="text"
+            type="float"
             id="purchasePrice"
             autoComplete="off"
             placeholder={purchase_price}

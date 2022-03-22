@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ClosetItem from './ClosetItem';
 import ClosetItemForm from './ClosetItemForm';
 
+
 export default function ClosetContainer({ user }) {
     const [data, setData] = useState([])
+    const [addItem, setAddItem] = useState(false)
 
     useEffect(() => {
         fetch("http://localhost:4000/closet_items")
@@ -48,13 +50,17 @@ export default function ClosetContainer({ user }) {
                 />
             ) 
   return (
-    <div className="closet-container">
+    <div>
+        <button onClick={() => setAddItem((addItem) => !addItem)}>{addItem ? "View My Closet" : "Add a closet item!"}</button>
+        {addItem ? 
+        (<div>
         <ClosetItemForm 
             user={user} 
             addNewClosetItem={addNewClosetItem}
             handleUpdateClosetItem={handleUpdateClosetItem}
-        />
-        {closetList}
+            setAddItem={setAddItem}
+            addItem={addItem}/> 
+        </div>) : (<div className="closet-container"> {closetList} </div>)}
     </div>
   )
 }

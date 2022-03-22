@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import EditClosetItem from './EditClosetItem';
+import ShowClosetItem from './ShowClosetItem';
+import { Link , Route, Routes } from "react-router-dom"; 
 
 export default function ClosetItem({ closetItem, handleDeleteClosetItem, handleUpdateClosetItem }) {
     const [isEditing, setIsEditing] = useState(false);
 
     const {id, item_category, image, color, description, brand, date_purchased, purchase_price } = closetItem
-
-    const dateSplit = date_purchased.split('-')
-    const options = { year: 'numeric', month: 'long', day: 'numeric' }
-    let dateItem = new Date(dateSplit).toLocaleDateString('en-US', options);
 
     function handleDelete(){
         fetch(`/closet_item/${id}`, { 
@@ -21,33 +19,32 @@ export default function ClosetItem({ closetItem, handleDeleteClosetItem, handleU
       }
 
   return (
-    <div className="closet-container">
+    <div className="closet-item">
         {isEditing ? (
             <EditClosetItem 
                 setIsEditing={setIsEditing}
                 handleUpdateClosetItem={handleUpdateClosetItem}
                 closetItem={closetItem}
             />
-
         ) : (
-        <div>
+        <div className="closet-container">
             <button className="closet-item-delete" onClick={handleDelete}>X</button>
             <button className="edit-btn" onClick={() => setIsEditing((isEditing) => !isEditing)}>
               <span role="img" aria-label="edit">
                 ✏️
               </span>
             </button>
-            <img src={image} alt={description} className="item-image"/>
-            <p className="item-description">Description: {description}</p>
-            <p className="item-color">Color: {color}</p>
-            <p className="item-brand">Brand: {brand}</p>
-            <p className="item-date-purchased">Date purchased: {dateItem}</p>
-            <p className="item-purchase-price">Purchase price: ${purchase_price}</p>
-            <p className="item-category">{item_category.item_type}</p>
+            <Link className="closet-item-details" to={`/closet_items/${id}`}>
+                <img src={image} alt={description} className="item-image" />
+            </Link>
+            <Routes>
+                <Route exact path="/closet_items/:id" element={
+                    <ShowClosetItem />}/>
+            </Routes>
         </div>
         )
     }
-        
+
     </div>
 
   )

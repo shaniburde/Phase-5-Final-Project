@@ -6,6 +6,7 @@ import Login from './Login';
 import About from './About';
 import MainContainer from './MainContainer';
 
+
 function App() {
 
   const [user, setUser] = useState(null);
@@ -32,7 +33,7 @@ function App() {
         <Route exact path="*" element={
           <MainContainer user={user} />}/> 
         <Route exact path="/about" element={
-          <About user={user} />}/>    
+          <About user={user} />}/>  
       </Routes>
     </div>
   );
