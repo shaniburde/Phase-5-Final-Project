@@ -60,7 +60,10 @@ export default function ClosetContainer({ user }) {
             handleUpdateClosetItem={handleUpdateClosetItem}
             setAddItem={setAddItem}
             addItem={addItem}/> 
-        </div>) : (<div className="closet-container"> {closetList} </div>)}
+        </div>
+        ) : (
+        <div className="closet-container">{closetList}</div>
+    )}
     </div>
   )
 }
