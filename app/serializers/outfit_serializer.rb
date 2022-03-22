@@ -6,8 +6,4 @@ class OutfitSerializer < ActiveModel::Serializer
   has_many :outfit_details
   has_many :closet_items, through: :outfit_details
 
-  # def outfit_details
-  #   outfit_details.closet_items.all
-  # end
-
 end

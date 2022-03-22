@@ -46,4 +46,8 @@ img{
   flex-basis: auto;
   flex-shrink: 3;
 }
+.outfit-items{
+  width: 15%;
+  height: 15%;
+}
 

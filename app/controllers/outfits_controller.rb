@@ -1,7 +1,7 @@
 class OutfitsController < ApplicationController
 
     def index 
-       outfits = Outfit.all
+       outfits = @current_user.outfits
        render json: outfits, status: :ok
     end
 

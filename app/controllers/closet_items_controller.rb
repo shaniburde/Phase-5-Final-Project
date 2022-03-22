@@ -2,8 +2,8 @@ class ClosetItemsController < ApplicationController
     # @current_user = User.find_by(id: session[:user_id])
 
     def index 
-        closet_items = ClosetItem.all
-        render json: closet_items, status: :ok
+        closet = @current_user.closet_items
+        render json: closet, status: :ok
     end
 
     def show 

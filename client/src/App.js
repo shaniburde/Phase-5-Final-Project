@@ -42,7 +42,7 @@ function App() {
           <Route exact path="/closet_items/:id" element={
             <ShowClosetItem />}/>
           <Route exact path="/my_outfits" element={
-            <OutfitContainer />}/>
+            <OutfitContainer user={user} />}/>
           <Route exact path="/my_outfits/:id" element={
             <ShowOutfit />}/>
       </Routes>
