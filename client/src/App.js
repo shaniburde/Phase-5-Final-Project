@@ -4,8 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import Header from './Header';
 import Login from './Login';
 import About from './About';
-import MainContainer from './MainContainer';
-import ShowClosetItem from './ShowClosetItem'
+import ShowClosetItem from './ShowClosetItem';
+import OutfitContainer from './OutfitContainer';
+import ClosetContainer from './ClosetContainer';
+import ShowOutfit from './ShowOutfit'
 
 
 function App() {
@@ -31,12 +33,18 @@ function App() {
     <div className="App">
       <Header user={user} setUser={setUser} onLogout={handleLogout} />
       <Routes>
-          <Route exact path="*" element={
-            <MainContainer user={user} />}/> 
+          <Route exact path="/about" element={
+            <About user={user} />}/> 
+          <Route exact path="my_closet" element={
+            <ClosetContainer user={user} />}/> 
           <Route exact path="/about" element={
             <About user={user} />}/>  
           <Route exact path="/closet_items/:id" element={
             <ShowClosetItem />}/>
+          <Route exact path="/my_outfits" element={
+            <OutfitContainer />}/>
+          <Route exact path="/my_outfits/:id" element={
+            <ShowOutfit />}/>
       </Routes>
     </div>
   );

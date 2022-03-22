@@ -1,21 +1,8 @@
-import React, { useState } from 'react';
-import EditClosetItem from './EditClosetItem';
+import React from 'react';
 import { Link } from "react-router-dom"; 
 
-export default function ClosetItem({ closetItem, handleDeleteClosetItem, handleUpdateClosetItem }) {
-    const [isEditing, setIsEditing] = useState(false);
-
+export default function ClosetItem({ closetItem }) {
     const {id, image, description } = closetItem
-
-    function handleDelete(){
-        fetch(`/closet_item/${id}`, { 
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        handleDeleteClosetItem(id)
-      }
 
   return (
     <div className="closet-item">

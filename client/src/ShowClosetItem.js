@@ -31,7 +31,7 @@ export default function ShowClosetItem() {
         })
         handleDeleteClosetItem(id)
       }
-      function handleDeleteClosetItem(closetItemId){
+    function handleDeleteClosetItem(closetItemId){
         const updatedClosetItems = data.filter((item) => {
             if (item.id !== closetItemId) {
                 return item
@@ -42,11 +42,7 @@ export default function ShowClosetItem() {
           setData(updatedClosetItems);
       }
       
-      function addNewClosetItem(newClosetItem){
-          setData((prevState) => [...prevState, newClosetItem])
-      }
-      
-      function handleUpdateClosetItem(updatedClosetItemObj) {
+    function handleUpdateClosetItem(updatedClosetItemObj) {
           const editedClosetItems = data.map((item) => {
               if (item.id === updatedClosetItemObj.id) {
                   return updatedClosetItemObj;
@@ -56,10 +52,7 @@ export default function ShowClosetItem() {
           });
           setData(editedClosetItems);
       }
-      
 
-
-    
     const {item_category, image, color, description, brand, date_purchased, purchase_price } = currentItem
 
     const dateSplit = date_purchased?.split('-')
