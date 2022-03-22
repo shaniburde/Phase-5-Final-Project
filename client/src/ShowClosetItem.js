@@ -85,7 +85,7 @@ export default function ShowClosetItem() {
                 ✏️
               </span>
             </button>
-            <img src={image} alt={description} className="item-image" />
+            <img src={image} alt={description} className="show-item-image" />
             <p className="item-description">Description: {description}</p>
             <p className="item-color">Color: {color}</p>
             <p className="item-brand">Brand: {brand}</p>
