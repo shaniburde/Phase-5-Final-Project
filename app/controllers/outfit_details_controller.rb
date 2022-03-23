@@ -22,14 +22,14 @@ class OutfitDetailsController < ApplicationController
 
     def destroy 
         outfit_details = find_outfit_details
-        outfit_details .destroy  
+        outfit_details.destroy  
         head :no_content
     end
 
     private 
 
     def find_outfit_details
-        @current_user.outfit_details.find(params[:id])
+        OutfitDetail.find(params[:id])
     end
 
     def outfit_details_params 

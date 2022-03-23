@@ -57,7 +57,7 @@ export default function ShowOutfit() {
       const {nickname, closet_items, outfit_category} = currentOutfit
 
       const outfitImages = closet_items?.map((item) => 
-          <Link className="closet-item-details" to={`/closet_items/${item.id}`}>  
+          <Link key={item.id} className="closet-item-details" to={`/closet_items/${item.id}`}>  
           <img className="outfit-items" src={item.image} alt="closet item belonging to a specific outfit"/> 
           </Link>
       )
