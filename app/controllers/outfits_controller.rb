@@ -34,7 +34,7 @@ class OutfitsController < ApplicationController
     end
 
     def outfit_params 
-        params.permit(:outfit_category_id, :nickname)
+        params.permit(:outfit_category_id, :nickname, :user_id)
     end
 
 end

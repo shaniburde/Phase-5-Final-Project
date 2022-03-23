@@ -16,9 +16,8 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
         .then(r => r.json())
         .then(data => setCategoryData(data))
     }, [])
-    console.log(categoryData)
 
-    const categoryOptions = categoryData.map(({ id, outfit_type}) => 
+    const categoryOptions = categoryData.map(({ id, outfit_type }) => 
     <option key={id} value={id}>{outfit_type}</option> )
 
    
