@@ -50,7 +50,7 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
     <FormField>
         <Label htmlFor="nickname">Nickname:</Label>
         <Input

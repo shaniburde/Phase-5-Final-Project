@@ -72,7 +72,7 @@ export default function ShowClosetItem() {
             />
         ) : (
         <div>
-            <button className="closet-item-delete" onClick={handleDelete}>X</button>
+            <button className="closet-item-delete" onClick={handleDelete}>Donate to goodwill</button>
             <button className="edit-btn" onClick={() => setIsEditing((isEditing) => !isEditing)}>
               <span role="img" aria-label="edit">
                 ✏️

@@ -66,7 +66,7 @@ export default function ClosetItemForm({ user, addNewClosetItem, setAddItem, add
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
     <FormField>
         <Label htmlFor="image">Image URL</Label>
         <Input
