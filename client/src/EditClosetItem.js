@@ -28,13 +28,7 @@ export default function EditClosetItem({ setIsEditing, handleUpdateClosetItem, c
 
     function handleSubmit(e) {
         e.preventDefault();
-    
-        fetch(`/closet_items/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
+        const editedItem = {
             image: updatedImage,
             color: updatedColor,
             description: updatedDescription,
@@ -42,16 +36,23 @@ export default function EditClosetItem({ setIsEditing, handleUpdateClosetItem, c
             date_purchased: updatedDatePurchased,
             purchase_price: updatedPurchasePrice,
             item_category_id: updatedCategory
-          }),
+        }
+        fetch(`/closet_items/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(editedItem),
         })
         .then((r) => {
             setIsLoading(false);
             setIsEditing(false);
           if (r.ok) {
-            r.json().then((updatedClosetItem) => handleUpdateClosetItem(updatedClosetItem));
+            r.json().then((updatedClosetItem) => handleUpdateClosetItem(updatedClosetItem))
           } else {
             r.json().then((err) => setErrors(err.errors));
           }})
+          window.location.reload()
       }
 
 
