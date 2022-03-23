@@ -37,17 +37,28 @@ closet_item5 = ClosetItem.create(user_id: user1.id, item_category_id: item_categ
 
 closet_item6 = ClosetItem.create(user_id: user1.id, item_category_id: item_category5.id, image: "https://static.zara.net/photos///2022/V/0/1/p/1255/702/700/2/w/1126/1255702700_6_1_1.jpg?ts=1642498906785", color: "brown", description: "Trench coat with V-neck lapel collar. Front welt pockets. Back vent. Front button closure.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 129)
 
+closet_item7 = ClosetItem.create(user_id: user1.id, item_category_id: item_category4.id, image: "https://static.zara.net/photos///2022/V/1/1/p/6326/910/035/2/w/850/6326910035_6_1_1.jpg?ts=1643730649190", color: "Green", description: "Mini city bag. Interior divided into three compartments. Handle and removable crossbody strap.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 49.90)
+
+closet_item8 = ClosetItem.create(user_id: user1.id, item_category_id: item_category7.id, image: "https://static.zara.net/photos///2022/V/0/1/p/9598/024/409/2/w/750/9598024409_6_1_1.jpg?ts=1642078795663", color: "Petrol Blue", description: "Dress with high collar and short sleeves. Ruching at waist.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 49.90)
+
+closet_item9 = ClosetItem.create(user_id: user1.id, item_category_id: item_category5.id, image: "https://static.zara.net/photos///2021/I/0/1/p/4432/710/800/2/w/1126/4432710800_6_1_1.jpg?ts=1632211181658", color: "Black", description: "Blazer with lapel collar and long sleeves with shoulder pads. Front welt pockets with flaps. Back vent. Front button closure.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 89.90)
+
+closet_item10 = ClosetItem.create(user_id: user1.id, item_category_id: item_category6.id, image: "https://static.zara.net/photos///2021/I/1/1/p/2051/810/040/2/w/750/2051810040_6_2_1.jpg?ts=1631548471497", color: "Black", description: "Long, flat knee high boots with stretch shaft and back pull tab detail. Treaded soles. Inner side zip closure.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 89.90)
+
 puts "Seeding outfit category seeds..."
 
-outfit_category1 = OutfitCategory.create(outfit_type: "Casual")
-outfit_category2 = OutfitCategory.create(outfit_type: "Night-Out")
-outfit_category3 = OutfitCategory.create(outfit_type: "Business Casual")
-outfit_category4 = OutfitCategory.create(outfit_type: "Black Tie")
-outfit_category5 = OutfitCategory.create(outfit_type: "Sporty")
+outfit_category1 = OutfitCategory.create(outfit_type: "Spring")
+outfit_category2 = OutfitCategory.create(outfit_type: "Summer")
+outfit_category3 = OutfitCategory.create(outfit_type: "Fall")
+outfit_category4 = OutfitCategory.create(outfit_type: "Winter")
+outfit_category5 = OutfitCategory.create(outfit_type: "Spring/Summer")
+outfit_category6 = OutfitCategory.create(outfit_type: "Fall/Winter")
 
 puts "Seeding outfit seeds..."
 
 outfit1 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category1.id, nickname: "Grocery store run go-to")
+
+outfit2 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category3.id, nickname: "Leather Goddess")
 
 puts "Seeding outfit-details seeds..."
 
@@ -56,6 +67,11 @@ outfit_details2 = OutfitDetail.create(outfit_id: outfit1.id, closet_item_id: clo
 outfit_details3 = OutfitDetail.create(outfit_id: outfit1.id, closet_item_id: closet_item4.id  )
 outfit_details4 = OutfitDetail.create(outfit_id: outfit1.id, closet_item_id: closet_item5.id  )
 outfit_details5 = OutfitDetail.create(outfit_id: outfit1.id, closet_item_id: closet_item6.id  )
+
+outfit_details6 = OutfitDetail.create(outfit_id: outfit2.id, closet_item_id: closet_item7.id  )
+outfit_details7 = OutfitDetail.create(outfit_id: outfit2.id, closet_item_id: closet_item8.id  )
+outfit_details8 = OutfitDetail.create(outfit_id: outfit2.id, closet_item_id: closet_item9.id  )
+outfit_details9 = OutfitDetail.create(outfit_id: outfit2.id, closet_item_id: closet_item10.id  )
 
 
 puts "Seeds seeded!"

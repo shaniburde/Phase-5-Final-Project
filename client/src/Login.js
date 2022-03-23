@@ -12,8 +12,9 @@ function Login({ onLogin }) {
   return (
     <div className="login-form">
     <div>
-      <h1 className="logo">Ms.Fit</h1>
+      <h1 className="logo">MissFit</h1>
       <h2 className="tagline">A closet management app.</h2>
+      <br/>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />

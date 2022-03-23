@@ -23,7 +23,7 @@ export default function ShowClosetItem() {
     }, [id]);
 
     function handleDelete(){
-        fetch(`/closet_item/${id}`, { 
+        fetch(`/closet_items/${id}`, { 
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-  border-color: #dbdbdb;
+  border-color: #F6E8DD;
+  color: #4B072E;
   -webkit-appearance: none;
   max-width: 100%;
   width: 100%;
@@ -10,7 +11,7 @@ const Input = styled.input`
   padding: 10px;
   border: none;
   border-radius: 25px;
-  background-color: #ccdbfd;
+  background-color: #F6E8DD;
 `;
 
 export default Input;

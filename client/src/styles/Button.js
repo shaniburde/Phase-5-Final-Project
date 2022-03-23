@@ -46,11 +46,11 @@ const FillButton = styled(ButtonBase)`
 
 const OutlineButton = styled(ButtonBase)`
   background-color: white;
-  color: #6E688D;
+  color: #F6E8DD;
   border: 2px solid var(--main);
 
   &:hover {
-    background: hsl(235deg 85% 97%);
+    background: hsl(235deg 85% 90%);
   }
 `;
 

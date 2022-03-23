@@ -20,6 +20,30 @@
   color: rgb(86, 78, 206);
   background-color: rgb(234, 148, 255);
 }
+.login-form{
+  /* background-color: #C58676; */
+  text-align: center;
+  margin-top: 8%;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+.about{
+  text-align: center;
+  font-size: 20px;
+  margin: 30px;
+}
+.logo{
+  color: #C79600;
+  background-color: #F6E8DD;
+  font-size: 70px;
+  border-radius: 50px;
+}
+.tagline{
+  color: #A0714F;
+  font-size: 20px;
+  border-radius: 50px;
+  font-style: italic;
+}
 img{
    border-radius: 20px;
    width: 100%;
