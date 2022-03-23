@@ -33,7 +33,7 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
             handleDeleteOutfitDetail(outfitDetailId)
             // setIsDeleted(true)
         })
-      }
+    }
     function handleDeleteOutfitDetail(outfitDetailId){
         const updatedOutfitDetails = outfit_details.filter((outfitDetail) => {
             if (outfitDetail.id !== outfitDetailId) {
@@ -43,7 +43,7 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
               }
           });
           setOutfitData(updatedOutfitDetails);
-      }
+    }
 
     const outfit_items = outfit_details.map(({id, closet_item}) => 
     <FormField key={id}>

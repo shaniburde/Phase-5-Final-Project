@@ -12,6 +12,7 @@ const Input = styled.input`
   border: none;
   border-radius: 25px;
   background-color: #F6E8DD;
+  // opacity: 0.6;
 `;
 
 export default Input;

@@ -6,10 +6,16 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
     const [nickname, setNickname] = useState("")
     const [category, setCategory] = useState("")
     const [categoryData, setCategoryData] = useState([])
+    const [closetItems, setClosetItems] = useState([])
+    const [outfitItems, setOutfitItems] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
 
-
+    useEffect(() => {
+        fetch("/closet_items")
+        .then(r => r.json())
+        .then(data => setClosetItems(data))
+    }, [])
 
     useEffect(() => {
         fetch("/outfit_categories")
@@ -18,7 +24,22 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
     }, [])
 
     const categoryOptions = categoryData.map(({ id, outfit_type }) => 
-    <option key={id} value={id}>{outfit_type}</option> )
+    <option key={id} value={id}>{outfit_type}</option> 
+    )
+
+    const closetItemOptions = closetItems.map(({ id, image, description }) => 
+    <div className="radio-buttons">
+        <input
+          id={id}
+          value={id}
+          name={description}
+          type="radio"
+          onChange={(e) => outfitItems.push(e.target.value)}
+        />
+        <img key={id} src={image} alt={description}/> 
+    </div>
+    )
+    
 
    
 
@@ -66,10 +87,13 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
             {categoryOptions}
         </select>
       </FormField>
+      <FormField>
+        <Label htmlFor="closet_items">Select Items</Label>
+        {closetItemOptions}
+      </FormField>
         <Button variant="fill" color="primary" type="submit">
           {isLoading ? "Loading..." : "Submit"}
         </Button>
-      
       <FormField>
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
