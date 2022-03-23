@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { Button, FormField, Label } from "./styles";
 import {useParams} from 'react-router-dom';
 import EditClosetItem from './EditClosetItem'; 
+
 
 export default function ShowClosetItem() {
     const [data, setData] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
     const [currentItem, setCurrentItem] = useState('')
     const [outfitData, setOutfitData] = useState([])
+    const [outfitDetailData, setOutfitDetailData] = useState([])
     const [selectedOutfit, setSelectedOutfit] = useState('')
     const [showOutfitOptions, setShowOutfitOptions] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-    const [errors, setErrors] = useState([]);
     const {id} = useParams();
 
     useEffect(() => {
@@ -23,6 +25,12 @@ export default function ShowClosetItem() {
         fetch("http://localhost:4000/outfits")
           .then((r) => r.json())
           .then((outfitData) => {setOutfitData(outfitData)});
+      }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:4000/outfit_details")
+          .then((r) => r.json())
+          .then((outfitDetailData) => {setOutfitDetailData(outfitDetailData)});
       }, []);
 
     const outfitOptions = outfitData.map(({ id, nickname }) => 
@@ -67,14 +75,16 @@ export default function ShowClosetItem() {
           setData(editedClosetItems);
       }
 
+      function handleAddToOutfit(){
+          setShowOutfitOptions((showOutfitOptions) => !showOutfitOptions)
+      }
     
-    function handleAddToOutfit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        setShowOutfitOptions((showOutfitOptions) => !showOutfitOptions)
         setIsLoading(true);
         const newOutfitDetail = {
             closet_item_id: id,
-            outfit_id: outfitData.id,
+            outfit_id: selectedOutfit,
         }
     
         fetch(`/outfit_details`, {
@@ -85,15 +95,14 @@ export default function ShowClosetItem() {
         .then((r) => {
             setIsLoading(false);
           if (r.ok) {
-            r.json().then((data) => console.log(data));
-          } else {
-            r.json().then((err) => setErrors(err.errors));
+            r.json().then((outfitDetail) => addNewOutfitDetail(outfitDetail));
           }})
           setSelectedOutfit("")
       }
-    // function addNewOutfitDetail(){
 
-    // }
+    function addNewOutfitDetail(newOutfitDetail){
+        setOutfitDetailData((prevState) => [...prevState, newOutfitDetail])
+    }
 
     const {item_category, image, color, description, brand, date_purchased, purchase_price } = currentItem
 
@@ -101,7 +110,7 @@ export default function ShowClosetItem() {
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
     let dateItem = new Date(dateSplit).toLocaleDateString('en-US', options);
 
-    console.log(currentItem)
+    console.log(outfitDetailData)
     
   return (
       
@@ -114,15 +123,23 @@ export default function ShowClosetItem() {
             />
         ) : (
         <div>
-            <button className="closet-item-delete" onClick={handleDelete}>Donate to goodwill</button>
-            <button className="edit-btn" onClick={() => setIsEditing((isEditing) => !isEditing)}>
+            <Button className="closet-item-delete" onClick={handleDelete}>Donate to goodwill</Button>
+            <Button className="edit-btn" onClick={() => setIsEditing((isEditing) => !isEditing)}>
               <span role="img" aria-label="edit">
                 ✏️
               </span>
-            </button>
-            <button className="add-item-to-outfit" onClick={handleAddToOutfit}>Add to an Outfit</button>
+            </Button>
+            <Button className="add-item-to-outfit" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to an Outfit" }</Button>
             {showOutfitOptions ? 
-            (<div>{outfitOptions}</div>
+            (<form onSubmit={handleSubmit}>
+                <FormField>
+                <Label htmlFor="outfit-option">Outfit Nickname</Label>
+                <select id="outfit-option"  onChange={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
+                </FormField>
+                <Button variant="fill" color="primary" type="submit">
+                    {isLoading ? "Loading..." : "Add to Outfit"}
+                </Button>
+            </form>
             ) : (null)}
             <img src={image} alt={description} className="show-item-image" />
             <p className="item-description">Description: {description}</p>
