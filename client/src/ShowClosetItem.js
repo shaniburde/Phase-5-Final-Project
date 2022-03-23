@@ -13,6 +13,7 @@ export default function ShowClosetItem() {
     const [selectedOutfit, setSelectedOutfit] = useState('')
     const [showOutfitOptions, setShowOutfitOptions] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [isDeleted, setIsDeleted] = useState(false)
     const {id} = useParams();
 
     useEffect(() => {
@@ -51,7 +52,10 @@ export default function ShowClosetItem() {
             'Content-Type': 'application/json'
           }
         })
-        handleDeleteClosetItem(id)
+        .then(() => {
+            handleDeleteClosetItem(id)
+            setIsDeleted(true)
+        })
       }
     function handleDeleteClosetItem(closetItemId){
         const updatedClosetItems = data.filter((item) => {
@@ -75,7 +79,7 @@ export default function ShowClosetItem() {
           setData(editedClosetItems);
       }
 
-      function handleAddToOutfit(){
+    function handleAddToOutfit(){
           setShowOutfitOptions((showOutfitOptions) => !showOutfitOptions)
       }
     
@@ -123,7 +127,10 @@ export default function ShowClosetItem() {
             />
         ) : (
         <div>
-            <Button className="closet-item-delete" onClick={handleDelete}>Donate to goodwill</Button>
+            { isDeleted ? 
+            (<p>Item Deleted!</p>) : (
+        <div>
+            <Button className="closet-item-delete" onClick={handleDelete}>Delete</Button>
             <Button className="edit-btn" onClick={() => setIsEditing((isEditing) => !isEditing)}>
               <span role="img" aria-label="edit">
                 ✏️
@@ -140,14 +147,16 @@ export default function ShowClosetItem() {
                     {isLoading ? "Loading..." : "Add to Outfit"}
                 </Button>
             </form>
-            ) : (null)}
-            <img src={image} alt={description} className="show-item-image" />
-            <p className="item-description">Description: {description}</p>
-            <p className="item-color">Color: {color}</p>
-            <p className="item-brand">Brand: {brand}</p>
-            <p className="item-date-purchased">Date purchased: {dateItem}</p>
-            <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
-            <p className="item-category">{item_category?.item_type}</p>
+            ) : (null)} 
+                <img src={image} alt={description} className="show-item-image" />
+                <p className="item-description">Description: {description}</p>
+                <p className="item-color">Color: {color}</p>
+                <p className="item-brand">Brand: {brand}</p>
+                <p className="item-date-purchased">Date purchased: {dateItem}</p>
+                <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
+                <p className="item-category">{item_category?.item_type}</p>
+            </div>
+            )}
         </div>
         )}
     </div>
