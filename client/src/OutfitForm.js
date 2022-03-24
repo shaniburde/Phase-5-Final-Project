@@ -4,13 +4,15 @@ import { Button, Error, Input, FormField, Label } from "./styles";
 
 export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit }) {
     const [nickname, setNickname] = useState("")
-    const [category, setCategory] = useState("")
+    const [nicknameSubmitted, setNicknameSubmitted] = useState(false)
+    const [category, setCategory] = useState()
     const [categoryData, setCategoryData] = useState([])
     const [closetItems, setClosetItems] = useState([])
     const [outfitItems, setOutfitItems] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
-
+    console.log(category)
+    
     useEffect(() => {
         fetch("/closet_items")
         .then(r => r.json())
@@ -59,13 +61,14 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
               .then((r) => {
                 setIsLoading(false);
               if (r.ok) {
-                r.json().then((data) => addNewOutfit(data));
+                r.json()
+                    .then((data) => addNewOutfit(data))
+                    .then(setNicknameSubmitted((nicknameSubmitted) => !nicknameSubmitted))
               } else {
                 r.json().then((err) => setErrors(err.errors));
               }})
-              setAddOutfit((addOutfit) => !addOutfit)
-              setNickname("")
-              setCategory("")  
+            //   setAddOutfit((addOutfit) => !addOutfit)
+            //   setNickname("")  
       }
 
 
@@ -83,16 +86,12 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
       </FormField>
       <FormField>
         <Label htmlFor="category">Category</Label>
-        <select id="category"  onChange={(e) => setCategory(e.target.value)}>
+        <select id="category"  onClick={(e) => setCategory(e.target.value)}>
             {categoryOptions}
         </select>
       </FormField>
-      <FormField>
-        <Label htmlFor="closet_items">Select Items</Label>
-        <div className="item-options-container">
-            {closetItemOptions}
-        </div>
-      </FormField>
+        { nicknameSubmitted ? (null) : (
+        <>
         <Button variant="fill" color="primary" type="submit">
           {isLoading ? "Loading..." : "Submit"}
         </Button>
@@ -101,6 +100,18 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
           <Error key={err}>{err}</Error>
         ))}
       </FormField>
+      </>
+      )}
+
+      { nicknameSubmitted ? (
+          <FormField>
+            <Label htmlFor="closet_items">Select Items</Label>
+            <div className="item-options-container">
+                {closetItemOptions}
+            </div>
+          </FormField>
+      ) : (null)
+    }
     </form>
   )
 }
