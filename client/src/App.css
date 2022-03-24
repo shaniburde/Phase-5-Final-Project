@@ -54,24 +54,43 @@ img{
   width: 30%;
 }
 .closet-container{
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  flex-flow: row;
-  flex-grow: 4;
-  align-content: space-between;
-  gap: 50px 20px;
-  margin: 5rem;
+  gap: 30px 30px;
+  margin: 1rem;
 }
 .closet-item{
-  height: 40vh;
-  flex-grow: 1;
+  justify-content: center;
+  height: 60vh;
   order: 3;
-  flex-basis: auto;
-  flex-shrink: 3;
+  flex-basis: 20%;
+}
+.outfit-container{
+  margin-bottom: 100px;
+}
+.outfit-items-container{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 30px;
+  margin: .5rem;
 }
 .outfit-items{
-  width: 15%;
-  height: 15%;
+  justify-content: center;
+  height: 30vh;
+  flex-basis: 10%;
 }
-
+.outfit-nickname{
+  font-size: 30px;
+  text-decoration: none;
+  text-align: center;
+  color: #A0714F;
+}
+.outfit-category{
+  text-decoration: none;
+  text-align: center;
+  color: #A0714F;
+}

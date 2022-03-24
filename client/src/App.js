@@ -33,9 +33,7 @@ function App() {
     <div className="App">
       <Header user={user} setUser={setUser} onLogout={handleLogout} />
       <Routes>
-          <Route exact path="/about" element={
-            <About user={user} />}/> 
-          <Route exact path="my_closet" element={
+          <Route exact path="/my_closet" element={
             <ClosetContainer user={user} />}/> 
           <Route exact path="/about" element={
             <About user={user} />}/>  
@@ -45,6 +43,8 @@ function App() {
             <OutfitContainer user={user} />}/>
           <Route exact path="/my_outfits/:id" element={
             <ShowOutfit />}/>
+          <Route exact path="/" element={
+            <About user={user} />}/> 
       </Routes>
     </div>
   );

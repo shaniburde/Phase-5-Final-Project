@@ -45,20 +45,37 @@ closet_item9 = ClosetItem.create(user_id: user1.id, item_category_id: item_categ
 
 closet_item10 = ClosetItem.create(user_id: user1.id, item_category_id: item_category6.id, image: "https://static.zara.net/photos///2021/I/1/1/p/2051/810/040/2/w/750/2051810040_6_2_1.jpg?ts=1631548471497", color: "Black", description: "Long, flat knee high boots with stretch shaft and back pull tab detail. Treaded soles. Inner side zip closure.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 89.90)
 
+closet_item11 = ClosetItem.create(user_id: user1.id, item_category_id: item_category5.id, image: "https://static.zara.net/photos///2022/V/0/1/p/2387/510/069/2/w/850/2387510069_6_1_1.jpg?ts=1644510134500", color: "Green", description: "Blazer with lapel collar and long sleeves with shoulder pads. Front flap pockets. Front closure with embossed gold buttons.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 119.90)
+
+closet_item12 = ClosetItem.create(user_id: user1.id, item_category_id: item_category3.id, image: "https://static.zara.net/photos///2022/V/0/1/p/1971/078/069/2/w/850/1971078069_6_1_1.jpg?ts=1644505319119", color: "Green", description: "High-waisted skirt with tonal belt. A-line silhouette. Back hidden in-seam zip closure.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 49.90)
+
+closet_item13 = ClosetItem.create(user_id: user1.id, item_category_id: item_category4.id, image: "https://lp.stories.com/app005prod?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B250%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&set=key%5Bresolve.quality%5D,value%5B90%5D&set=ImageVersion%5B1%5D,origin%5Bdam%5D,source%5B/7c/da/7cda3b0caa9b46a5b6db98b0abb0ba145e3d22e7.jpg%5D,type%5BDESCRIPTIVESTILLLIFE%5D&call=url%5Bfile:/product/dynamic.chain%5D", color: "Tortoise", description: "Cat eye sunglasses with thick temples.", brand: "& Other Stories ", date_purchased: "2022-03-21", purchase_price: 39)
+
+closet_item14 = ClosetItem.create(user_id: user1.id, item_category_id: item_category6.id, image: "https://lp.stories.com/app005prod?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B550%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&set=key%5Bresolve.quality%5D,value%5B90%5D&set=ImageVersion%5B1%5D,origin%5Bdam%5D,source%5B/1a/e4/1ae4ec21048c7ab9a44332e6101237b64403fe37.jpg%5D,type%5BDESCRIPTIVESTILLLIFE%5D&call=url%5Bfile:/product/dynamic.chain%5D", color: "Black", description: "Almond-shaped leather loafers adorned with metallic tonal buckles. Accented with chunky rubber soles and structural topstitching.", brand: "& Other Stories", date_purchased: "2022-03-21", purchase_price: 129)
+
+closet_item15 = ClosetItem.create(user_id: user1.id, item_category_id: item_category2.id, image: "https://aritzia.scene7.com/is/image/Aritzia/large/f21_01_a06_95902_1274_off_a.jpg", color: "Black", description: "These are mid-rise trousers with a tapered leg. They're made with Vegan Leather.", brand: "Aritzia", date_purchased: "2022-03-21", purchase_price: 148)
+
+closet_item16 = ClosetItem.create(user_id: user1.id, item_category_id: item_category7.id, image: "https://static.zara.net/photos///2022/V/0/1/p/4174/311/615/2/w/1024/4174311615_6_1_1.jpg?ts=1644512034946", color: "Orange", description: "Short sleeveless dress with round neckline.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 25.90)
+
+closet_item17 = ClosetItem.create(user_id: user1.id, item_category_id: item_category5.id, image: "https://static.zara.net/photos///2021/I/0/1/p/4048/240/400/2/w/1024/4048240400_6_1_1.jpg?ts=1631177717874", color: "Blue", description: "Cropped jacket with lapel collar and long cuffed sleeves. Front flap pockets with buttons. Washed effect. Unfinished hem. Front metal button closure.", brand: "Zara", date_purchased: "2022-03-21", purchase_price: 49.90)
+
+
+
 puts "Seeding outfit category seeds..."
 
-outfit_category1 = OutfitCategory.create(outfit_type: "Spring")
-outfit_category2 = OutfitCategory.create(outfit_type: "Summer")
-outfit_category3 = OutfitCategory.create(outfit_type: "Fall")
-outfit_category4 = OutfitCategory.create(outfit_type: "Winter")
-outfit_category5 = OutfitCategory.create(outfit_type: "Spring/Summer")
-outfit_category6 = OutfitCategory.create(outfit_type: "Fall/Winter")
+outfit_category1 = OutfitCategory.create(outfit_type: "Casual")
+outfit_category2 = OutfitCategory.create(outfit_type: "Business Casual")
+outfit_category3 = OutfitCategory.create(outfit_type: "Eveningwear")
+# outfit_category4 = OutfitCategory.create(outfit_type: "Fall/Winter - Casual")
+# outfit_category5 = OutfitCategory.create(outfit_type: "Fall/Winter - Business Casual")
+# outfit_category6 = OutfitCategory.create(outfit_type: "Fall/Winter - Eveningwear")
 
 puts "Seeding outfit seeds..."
 
-outfit1 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category1.id, nickname: "Grocery store run go-to")
-
-outfit2 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category3.id, nickname: "Leather Goddess")
+outfit1 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category1.id, nickname: "Grocery Store Chic")
+outfit2 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category2.id, nickname: "Leather Goddess")
+outfit3 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category2.id, nickname: "St. Patty's Day - but make it fashion")
+outfit4 = Outfit.create(user_id: user1.id, outfit_category_id: outfit_category1.id, nickname: "Traffic Cone - but make it fashion")
 
 puts "Seeding outfit-details seeds..."
 
@@ -73,5 +90,14 @@ outfit_details7 = OutfitDetail.create(outfit_id: outfit2.id, closet_item_id: clo
 outfit_details8 = OutfitDetail.create(outfit_id: outfit2.id, closet_item_id: closet_item9.id  )
 outfit_details9 = OutfitDetail.create(outfit_id: outfit2.id, closet_item_id: closet_item10.id  )
 
+outfit_details10 = OutfitDetail.create(outfit_id: outfit3.id, closet_item_id: closet_item11.id  )
+outfit_details11 = OutfitDetail.create(outfit_id: outfit3.id, closet_item_id: closet_item12.id  )
+outfit_details12 = OutfitDetail.create(outfit_id: outfit3.id, closet_item_id: closet_item13.id  )
+outfit_detail13 = OutfitDetail.create(outfit_id: outfit3.id, closet_item_id: closet_item14.id  )
+
+outfit_details14 = OutfitDetail.create(outfit_id: outfit4.id, closet_item_id: closet_item16.id  )
+outfit_details15 = OutfitDetail.create(outfit_id: outfit4.id, closet_item_id: closet_item4.id  )
+outfit_details16 = OutfitDetail.create(outfit_id: outfit4.id, closet_item_id: closet_item13.id  )
+outfit_detail17 = OutfitDetail.create(outfit_id: outfit4.id, closet_item_id: closet_item17.id  )
 
 puts "Seeds seeded!"
