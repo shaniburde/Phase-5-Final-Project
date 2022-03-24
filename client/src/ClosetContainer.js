@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ClosetItem from './ClosetItem';
 import ClosetItemForm from './ClosetItemForm';
+import Search from './Search';
 
 
 export default function ClosetContainer({ user }) {
     const [data, setData] = useState([])
-    const [addItem, setAddItem] = useState(false)
+    const [addItem, setAddItem] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:4000/closet_items")
@@ -40,6 +42,9 @@ export default function ClosetContainer({ user }) {
         }
         
         const closetList = [...data]
+        .filter((data) => { 
+            return data.description.toLowerCase().includes(searchTerm.toLowerCase());
+          })
           .map((closetItem) => 
                 <ClosetItem
                   key={closetItem.id} 
@@ -62,7 +67,12 @@ export default function ClosetContainer({ user }) {
             addItem={addItem}/> 
         </div>
         ) : (
-        <div className="closet-container">{closetList}</div>
+        <>
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <div className="closet-container">
+            {closetList}
+        </div>
+        </>
     )}
     </div>
   )
