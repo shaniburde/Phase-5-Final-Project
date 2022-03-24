@@ -9,9 +9,10 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
     const [categoryData, setCategoryData] = useState([])
     const [closetItems, setClosetItems] = useState([])
     const [outfitItems, setOutfitItems] = useState([])
+    const [newOutfitId, setNewOutfitId] = useState("")
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
-    console.log(category)
+ 
     
     useEffect(() => {
         fetch("/closet_items")
@@ -62,7 +63,8 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
                 setIsLoading(false);
               if (r.ok) {
                 r.json()
-                    .then((data) => addNewOutfit(data))
+                    .then((data) => console.log(data))
+                    // .then((data) => setNewOutfitId(data.id))
                     .then(setNicknameSubmitted((nicknameSubmitted) => !nicknameSubmitted))
               } else {
                 r.json().then((err) => setErrors(err.errors));
@@ -70,7 +72,7 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
             //   setAddOutfit((addOutfit) => !addOutfit)
             //   setNickname("")  
       }
-
+console.log(newOutfitId)
 
   return (
     <form className="outfit-form" onSubmit={handleSubmit}>
