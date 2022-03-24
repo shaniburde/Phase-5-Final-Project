@@ -28,16 +28,16 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
     )
 
     const closetItemOptions = closetItems.map(({ id, image, description }) => 
-    <div className="radio-buttons">
-        <input
-          id={id}
-          value={id}
-          name={description}
-          type="radio"
-          onChange={(e) => outfitItems.push(e.target.value)}
-        />
-        <img key={id} src={image} alt={description}/> 
-    </div>
+        <div className="item-options">
+            <input
+            id={id}
+            value={id}
+            name={description}
+            type="checkbox"
+            onChange={(e) => console.log(e.target.value)}
+            />
+            <img key={id} src={image} alt={description}/> 
+        </div>
     )
     
 
@@ -70,7 +70,7 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
 
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="outfit-form" onSubmit={handleSubmit}>
     <FormField>
         <Label htmlFor="nickname">Nickname:</Label>
         <Input
@@ -89,7 +89,9 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
       </FormField>
       <FormField>
         <Label htmlFor="closet_items">Select Items</Label>
-        {closetItemOptions}
+        <div className="item-options-container">
+            {closetItemOptions}
+        </div>
       </FormField>
         <Button variant="fill" color="primary" type="submit">
           {isLoading ? "Loading..." : "Submit"}

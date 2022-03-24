@@ -4,16 +4,19 @@ import { Button, Error, Input, FormField, Label } from "./styles";
 
 
 export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit }) {
-    const [outfitData, setOutfitData] = useState(outfit)
-    const {id, nickname, outfit_category, outfit_details} = outfitData
+    const {id, nickname, outfit_category, outfit_details} = outfit
+    const currentOutfitDetail = (outfit_details.map(({id}) => id ))
+    const [outfitItemData, setOutfitItemData] = useState(currentOutfitDetail)
     const [updatedNickname, setUpdatedNickname] = useState(nickname)
-    const [updatedCategory, setUpdatedCategory] = useState(outfit_category.id)
-    const [updatedOutfitDetails, setUpdatedOutfitDetails] = useState(outfit_details.closet_items)
+    const [updatedCategory, setUpdatedCategory] = useState(outfit_category)
     const [categoryData, setCategoryData] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
-    const [isDeleted, setIsDeleted] = useState(false)
     
+    console.log(outfitItemData)
+    // const currentOutfitDetail = (outfit_details.map(({id}) => id ))
+    // const [updatedOutfitDetail, setUpdatedOutfitDetail] = useState(currentOutfitDetail)
+    // console.log(updatedOutfitDetail)
 
     useEffect(() => {
         fetch("/outfit_categories")
@@ -29,9 +32,9 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
           }
         })
         .then(() => {
-            console.log(id)
+            console.log(outfitDetailId)
             handleDeleteOutfitDetail(outfitDetailId)
-            // setIsDeleted(true)
+            window.location.reload()
         })
     }
     function handleDeleteOutfitDetail(outfitDetailId){
@@ -42,12 +45,12 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
                   return null
               }
           });
-          setOutfitData(updatedOutfitDetails);
+          setOutfitItemData(updatedOutfitDetails);
     }
 
     const outfit_items = outfit_details.map(({id, closet_item}) => 
-    <FormField key={id}>
-        <Button className="closet-item-delete" onClick={() => handleDelete(id)}>Delete</Button>
+    <FormField className="outfit-items" key={id}>
+        <Button className="closet-item-delete" onClick={() => handleDelete(id)}>Remove from this Outfit</Button>
         <img src={closet_item.image} alt={closet_item.description} className="item-image"/>
     </FormField>
     )
@@ -77,7 +80,6 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
           } else {
             r.json().then((err) => setErrors(err.errors));
           }})
-          window.location.reload()
       }
 
 
@@ -100,7 +102,12 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
                 {categoryOptions}
             </select>
         </FormField>
-        {outfit_items}
+        <div className="outfit-items-container" >{outfit_items}</div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
             <Button variant="fill" color="primary" type="submit">
             {isLoading ? "Loading..." : "Save"}
             </Button>

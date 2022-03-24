@@ -10,7 +10,7 @@ export default function ShowClosetItem() {
     const [currentItem, setCurrentItem] = useState('')
     const [outfitData, setOutfitData] = useState([])
     const [outfitDetailData, setOutfitDetailData] = useState([])
-    const [selectedOutfit, setSelectedOutfit] = useState('')
+    const [selectedOutfit, setSelectedOutfit] = useState()
     const [showOutfitOptions, setShowOutfitOptions] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [isDeleted, setIsDeleted] = useState(false)
@@ -101,7 +101,7 @@ export default function ShowClosetItem() {
           if (r.ok) {
             r.json().then((outfitDetail) => addNewOutfitDetail(outfitDetail));
           }})
-          setSelectedOutfit("")
+          setShowOutfitOptions((showOutfitOptions) => !showOutfitOptions)
       }
 
     function addNewOutfitDetail(newOutfitDetail){
@@ -141,7 +141,7 @@ export default function ShowClosetItem() {
             (<form onSubmit={handleSubmit}>
                 <FormField>
                 <Label htmlFor="outfit-option">Outfit Nickname</Label>
-                <select id="outfit-option"  onChange={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
+                <select id="outfit-option"  onClick={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
                 </FormField>
                 <Button variant="fill" color="primary" type="submit">
                     {isLoading ? "Loading..." : "Add to Outfit"}

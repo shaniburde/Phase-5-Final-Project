@@ -43,7 +43,7 @@ export default function ClosetContainer({ user }) {
         
         const closetList = [...data]
         .filter((data) => { 
-            return data.description.toLowerCase().includes(searchTerm.toLowerCase());
+            return data.color.toLowerCase().includes(searchTerm.toLowerCase());
           })
           .map((closetItem) => 
                 <ClosetItem

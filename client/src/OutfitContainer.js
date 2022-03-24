@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import OutfitItem from './OutfitItem';
-import OutfitForm from './OutfitForm'
+import OutfitForm from './OutfitForm';
+// import Search from './Search';
 
 export default function OutfitContainer({ user }) {
     const [data, setData] = useState([]);
-    const [addOutfit, setAddOutfit] = useState(false)
+    const [addOutfit, setAddOutfit] = useState(false);
+    // const [searchTerm, setSearchTerm] = useState()
 
     useEffect(() => {
         fetch("http://localhost:4000/outfits")
@@ -18,7 +20,7 @@ export default function OutfitContainer({ user }) {
 
     console.log(data)
     const outfitList = [...data]
-          .map((outfit) => 
+    .map((outfit) => 
                 <OutfitItem
                   key={outfit.id} 
                   id={outfit.id}
@@ -40,8 +42,12 @@ export default function OutfitContainer({ user }) {
                 />
             </div>
 
-        ) : ( <div>{outfitList}</div> )}
-        
+        ) : ( 
+        <>
+        {/* <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
+        <div>{outfitList}</div> 
+        </>
+        )}
     </div>
   )
 }

@@ -21,7 +21,6 @@
   background-color: rgb(234, 148, 255);
 }
 .login-form{
-  /* background-color: #C58676; */
   text-align: center;
   margin-top: 8%;
   margin-right: 30%;
@@ -93,4 +92,26 @@ img{
   text-decoration: none;
   text-align: center;
   color: #A0714F;
+}
+.outfit-form{
+  text-align: center;
+  margin-top: 8%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+#nickname{
+  width: 40%;
+  opacity: 0.9;
+}
+.item-options-container{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 30px;
+}
+.item-options{
+  justify-content: center;
+  height: 30vh;
+  flex-basis: 10%;
 }
