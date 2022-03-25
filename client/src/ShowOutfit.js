@@ -5,6 +5,7 @@ import EditOutfit from './EditOutfit';
 export default function ShowOutfit() {
     const [data, setData] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
+    const [isDeleted, setIsDeleted] = useState(false)
     const [currentOutfit, setCurrentOutfit] = useState('')
     const {id} = useParams();
 
@@ -30,6 +31,7 @@ export default function ShowOutfit() {
           }
         })
         handleDeleteOutfit(id)
+        setIsDeleted((isDeleted) => !isDeleted)
       }
 
     function handleDeleteOutfit(outfitId){
@@ -77,9 +79,12 @@ export default function ShowOutfit() {
                 handleUpdateOutfit={handleUpdateOutfit}
                 outfit={currentOutfit}
             />
+        ) : ( 
+        <div>
+        { isDeleted ? (<h4>Outfit successfully removed! Click "My Outfits" to see your iconic 'fits.</h4>
         ) : (
         <div>
-                <button className="closet-item-delete" onClick={handleDelete}>X</button>
+                <button className="closet-item-delete" onClick={handleDelete}>Delete this 'Fit</button>
                 <button className="edit-btn" onClick={() => setIsEditing((isEditing) => !isEditing)}>
                 <span role="img" aria-label="edit">
                     ✏️
@@ -89,6 +94,8 @@ export default function ShowOutfit() {
                 <h3>{nickname}</h3>
                 <h3>{outfit_category?.outfit_type}</h3>
             
+        </div>
+        )}
         </div>
         )}
     </div>

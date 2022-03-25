@@ -35,7 +35,7 @@ const ButtonBase = styled.button`
 `;
 
 const FillButton = styled(ButtonBase)`
-  background-color: #4B072E;
+  background-color: #043645;
   color: white;
 
   &:hover {

@@ -13,36 +13,39 @@
     transform: rotate(360deg);
   }
 } */
-
+.App{
+  padding: 2%;
+}
+.header{
+  text-align: center;
+  font-weight: bold;
+  font-family: "Helvetica Neue";
+}
 .App-header{
-  font-size: 45px;
+  font-size: 65px;
   text-align: center;
   color: rgb(86, 78, 206);
   background-color: rgb(234, 148, 255);
 }
 .login-form{
   text-align: center;
-  margin-top: 8%;
-  margin-right: 30%;
-  margin-left: 30%;
+  padding-right: 30%;
+  padding-left: 30%;
+  padding-top: 5%;
+  background-color: #D0E9F1;
+
 }
 .about{
   text-align: center;
   font-size: 20px;
   margin: 30px;
 }
-.logo{
-  color: #C79600;
-  background-color: #F6E8DD;
-  font-size: 70px;
-  border-radius: 50px;
+.logo{ 
+  width: 50%;
+  border-radius: 50%;
+  margin-bottom: 10%;
 }
-.tagline{
-  color: #A0714F;
-  font-size: 20px;
-  border-radius: 50px;
-  font-style: italic;
-}
+
 img{
    border-radius: 20px;
    width: 100%;
@@ -114,4 +117,7 @@ img{
   justify-content: center;
   height: 30vh;
   flex-basis: 10%;
+}
+.weather-container{
+  margin: 3rem;
 }

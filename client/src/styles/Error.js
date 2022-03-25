@@ -10,8 +10,8 @@ function Error({ children }) {
 }
 
 const Wrapper = styled.div`
-  color: black;
-  background-color: #F6E8DD;
+  color: #011F28;
+  background-color: #A7D2DB;
   border-radius: 6px;
   display: flex;
   padding: 8px;

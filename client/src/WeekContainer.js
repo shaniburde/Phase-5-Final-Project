@@ -30,9 +30,11 @@ class WeekContainer extends React.Component {
   
     render() {
       return (
-        <div>
+    <div className="weather-container">
+        <div className="row row-cols-auto">
             {this.formatDayCards()}
         </div>
+    </div>
       )
     }
   }

@@ -13,7 +13,7 @@ export default function Navbar({ user, setUser }) {
 
   return (
       <>
-         <div className="header-background">
+         <div className="nav-bar">
             <div>
             <p className="welcome">Welcome, {user.username}!</p>
             <button onClick={handleLogoutClick} className="logout-button">Logout</button>
