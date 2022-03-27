@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar({ user, setUser }) {
+export default function NavBar({ user, setUser }) {
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -12,11 +12,11 @@ export default function Navbar({ user, setUser }) {
   }
 
   return (
-      <>
+    <>
          <div className="nav-bar">
             <div>
             <p className="welcome">Welcome, {user.username}!</p>
-            <button onClick={handleLogoutClick} className="logout-button">Logout</button>
+            <Link  exact to="/" onClick={handleLogoutClick} className="logout-button">Logout</Link>
             </div>
             <Link exact to="/about" className="nav-button">About</Link>
             <br/>

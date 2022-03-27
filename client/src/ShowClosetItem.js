@@ -129,32 +129,34 @@ export default function ShowClosetItem() {
         <div>
             { isDeleted ? 
             (<p>Item Deleted!</p>) : (
-        <div>
-            <Button className="closet-item-delete" onClick={handleDelete}>Delete</Button>
-            <Button className="edit-btn" onClick={() => setIsEditing((isEditing) => !isEditing)}>
-              <span role="img" aria-label="edit">
-                ✏️
-              </span>
-            </Button>
-            <Button className="add-item-to-outfit" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to an Outfit" }</Button>
-            {showOutfitOptions ? 
-            (<form onSubmit={handleSubmit}>
-                <FormField>
-                <Label htmlFor="outfit-option">Outfit Nickname</Label>
-                <select id="outfit-option"  onClick={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
-                </FormField>
-                <Button variant="fill" color="primary" type="submit">
-                    {isLoading ? "Loading..." : "Add to Outfit"}
-                </Button>
-            </form>
+        <div className="show-item-details">
+            <img src={image} alt={description} className="show-item-image" />
+            <p className="item-description">Description: {description}</p>
+            <p className="item-color">Color: {color}</p>
+            <p className="item-brand">Brand: {brand}</p>
+            <p className="item-date-purchased">Date purchased: {dateItem}</p>
+            <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
+            <p className="item-category">{item_category?.item_type}</p>
+            <div className="button-div">
+                <button className="closet-item-buttons" onClick={handleDelete}>Delete</button>
+                <button className="closet-item-buttons" onClick={() => setIsEditing((isEditing) => !isEditing)}>
+                <span role="img" aria-label="edit">
+                    ✏️
+                </span>
+                </button>
+                <button className="closet-item-buttons" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to an Outfit" }</button>
+                {showOutfitOptions ? 
+                (<form onSubmit={handleSubmit}>
+                    <FormField>
+                    <Label htmlFor="outfit-option">Outfit Nickname</Label>
+                    <select id="outfit-option"  onClick={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
+                    </FormField>
+                    <Button variant="fill" color="primary" type="submit">
+                        {isLoading ? "Loading..." : "Add to Outfit"}
+                    </Button>
+                </form>
             ) : (null)} 
-                <img src={image} alt={description} className="show-item-image" />
-                <p className="item-description">Description: {description}</p>
-                <p className="item-color">Color: {color}</p>
-                <p className="item-brand">Brand: {brand}</p>
-                <p className="item-date-purchased">Date purchased: {dateItem}</p>
-                <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
-                <p className="item-category">{item_category?.item_type}</p>
+            </div>
             </div>
             )}
         </div>

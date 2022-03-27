@@ -55,7 +55,7 @@ export default function ClosetContainer({ user }) {
                 />
             ) 
   return (
-    <div>
+    <div className="outfit-page-container">
         <button onClick={() => setAddItem((addItem) => !addItem)}>{addItem ? "View My Closet" : "Add a closet item!"}</button>
         {addItem ? 
         (<div>
