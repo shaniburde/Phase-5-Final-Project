@@ -43,7 +43,7 @@ export default function ClosetContainer({ user }) {
         
         const closetList = [...data]
         .filter((data) => { 
-            return data.color.toLowerCase().includes(searchTerm.toLowerCase());
+            return data.description.toLowerCase().includes(searchTerm.toLowerCase());
           })
           .map((closetItem) => 
                 <ClosetItem
@@ -56,7 +56,9 @@ export default function ClosetContainer({ user }) {
             ) 
   return (
     <div className="outfit-page-container">
-        <button onClick={() => setAddItem((addItem) => !addItem)}>{addItem ? "View My Closet" : "Add a closet item!"}</button>
+        <div className="form-toggle-button-container">
+            <button className="form-toggle-button" onClick={() => setAddItem((addItem) => !addItem)}>{addItem ? "View My Closet" : "Add a closet item!"}</button>
+        </div>
         {addItem ? 
         (<div>
         <ClosetItemForm 

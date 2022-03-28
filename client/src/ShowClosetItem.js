@@ -129,14 +129,16 @@ export default function ShowClosetItem() {
         <div>
             { isDeleted ? 
             (<p>Item Deleted!</p>) : (
-        <div className="show-item-details">
-            <img src={image} alt={description} className="show-item-image" />
-            <p className="item-description">Description: {description}</p>
-            <p className="item-color">Color: {color}</p>
-            <p className="item-brand">Brand: {brand}</p>
-            <p className="item-date-purchased">Date purchased: {dateItem}</p>
-            <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
+        <div className="show-item-details-container">
+        <div className="show-item-details-image">
+            <img src={image} alt={description}/>
+        </div>
+        <div className="show-item-details-text">
             <p className="item-category">{item_category?.item_type}</p>
+            <p className="item-description">{description}</p>
+            <p className="item-brand-color">{brand} | {color}</p>
+            <p className="item-date-purchased">Purchased: {dateItem}</p>
+            <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
             <div className="button-div">
                 <button className="closet-item-buttons" onClick={handleDelete}>Delete</button>
                 <button className="closet-item-buttons" onClick={() => setIsEditing((isEditing) => !isEditing)}>
@@ -156,6 +158,7 @@ export default function ShowClosetItem() {
                     </Button>
                 </form>
             ) : (null)} 
+            </div>
             </div>
             </div>
             )}

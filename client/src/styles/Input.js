@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-  border-color: #F1F8F9;
-  color: #F1F8F9;
+  color: #011F28;
   -webkit-appearance: none;
   max-width: 100%;
   width: 100%;
@@ -11,7 +10,7 @@ const Input = styled.input`
   padding: 10px;
   border: none;
   border-radius: 25px;
-  background-color: #7A97A0;
+  background-color: #F7F7F3;
   // opacity: 0.6;
 `;
 

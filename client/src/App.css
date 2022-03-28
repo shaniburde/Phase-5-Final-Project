@@ -17,13 +17,9 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.App{
-  /* padding: 1%; */
-}
 .header-logo{
-  text-align: center;
-  padding-top: 1%;
-  background-color: #F3F6FB;
+  width: 50%;
+  background-color: #F3F6FA;
 }
 .App-header{
   font-size: 65px;
@@ -36,12 +32,26 @@
   padding-right: 30%;
   padding-left: 30%;
   padding-top: 5%;
-  background-color: #D0E9F1;
+  padding-bottom: 20%;
+  background-color: #D7DBC2;
+}
+.app-description{
+  font-family: 'Montserrat', sans-serif;
+  color: #F7F7F2;
+  font-weight: 700;
+  padding-top: 5%;
+  padding-right: 30%;
+  padding-left: 30%;
 }
 .about{
   text-align: center;
   font-size: 20px;
-  margin: 30px;
+  padding: 30px;
+  padding-bottom: 30%;
+  background-color: #012F3C;
+}
+.weather-title{
+  color: #F7F7F2;
 }
 .logo{ 
   width: 35%;
@@ -49,14 +59,19 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  transition: all .4s ease-in-out;
+}
+.logo:hover{
+  transform: scale(1.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 .welcome{
-  background-color:#F3F6FB;
+  background-color:#F3F6FA;
   font-style: italic;
-  padding-left: 5%;
-  padding-bottom: 2%;
   color: #012F3D;
-  font-weight: bold;
+  padding-top: 10px;
+  margin-left: 35px;
+  font-size: 15px;
 }
 img{
    border-radius: 20px;
@@ -76,11 +91,6 @@ img{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   opacity: 0.7;
 }
-.show-item-image{
-  width: 30%;
-  justify-content: center;
-  text-align: center;
-}
 .closet-container{
   align-items: center;
   justify-content: center;
@@ -99,12 +109,16 @@ img{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 8rem;
+  background-color: #D7DBC2;
 }
 .outfit-container{
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 30% 10%;
+  gap: 10% 10%;
 
 }
 .outfit-items-container{
@@ -139,6 +153,7 @@ img{
   color: #A0714F;
 }
 .outfit-form{
+  padding-bottom: 80px;
   text-align: center;
   margin-top: 8%;
   margin-right: 5%;
@@ -161,14 +176,29 @@ img{
   flex-basis: 10%;
 }
 .weather-container{
-  margin: 3rem;
+  margin: 1rem;
 }
-.button-div{
-  display: inline-flex;
+.show-item-details-container{
+  display: flex;
   flex-direction: row;
+  justify-content: center;  
 }
-.show-item-details{
-  text-align: center;
+.show-item-details-image{
+  margin-top: 3%;
+  margin-left: 15%;
+  margin-right: 3%;
+  padding-bottom: 5%;
+  text-align: right;
+  flex-basis: 100%;
+}
+.show-item-details-text{
+  margin-top: 3%;
+  margin-right: 10%;
+  margin-left: 3%;
+  padding-right: 5%;
+  flex-wrap: wrap;
+  text-align: left;
+  flex-basis: 100%;
 }
 .deleted-message{
   text-align: center;
@@ -205,4 +235,86 @@ img{
   transform: scale(1.04);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   opacity: 0.7;
+}
+.item-description{
+  padding-right: 35%;
+  font-size: 14px;
+  padding-bottom: 8%;
+}
+.item-brand-color{
+  font-size: 19px;
+  font-weight: italic;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.item-date-purchased{
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+.item-purchase-price{
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+.item-category{
+  font-weight: bold;
+  font-size: 25px;
+  padding-bottom: 10%;
+}
+.closet-item-buttons{
+  border: none;
+  border-radius: 15px;
+  padding-right: 15%;
+  padding-left: 15%;
+  margin-right: 3%;
+  margin-left: 3%;
+  font-size: 10px;
+}
+.button-div{
+  display: inline-flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  float: left;
+}
+.search-container{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.search-bar{
+  width: 40%;
+  background-color: #839478;
+  border: none;
+  border-radius: 25px;
+  padding: 1%;
+  margin-bottom: 1%;
+  color: white;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+.search-bar::placeholder{
+  color: white;
+}
+.search-bar:hover{
+  background-color: rgb(151, 158, 151);
+}
+.form-toggle-button-container{
+  float: left;
+}
+.form-toggle-button{
+  float: right;
+  margin-right: 1%;
+  width: 15%;
+  border: none;
+  border-radius: 25px;
+  padding: 1%;
+  font-weight: bold;
+  color: #F7F7F3;
+  background-color: #011F28;
+  transition: all .4s ease-in-out;
+}
+.form-toggle-button:hover{
+  background-color: #093341;
+  transform: scale(0.94);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.589);
 }

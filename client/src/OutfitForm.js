@@ -63,8 +63,8 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
                 setIsLoading(false);
               if (r.ok) {
                 r.json()
-                    .then((data) => console.log(data))
-                    // .then((data) => setNewOutfitId(data.id))
+                    // .then((data) => console.log(data.id))
+                    .then((data) => setNewOutfitId(data.id))
                     .then(setNicknameSubmitted((nicknameSubmitted) => !nicknameSubmitted))
               } else {
                 r.json().then((err) => setErrors(err.errors));
@@ -72,7 +72,34 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
             //   setAddOutfit((addOutfit) => !addOutfit)
             //   setNickname("")  
       }
-console.log(newOutfitId)
+      function handleItemsSubmit(e){
+        e.preventDefault();
+        setIsLoading(true);
+        // let itemId = outfitItems.map((id) => 
+        //  id )
+        const newAssociation = {
+            outfit_id: newOutfitId,
+            closet_item_id: outfitItems.id, 
+            // THIS ABOVE LINE IS THE PROBLEM
+        }
+        fetch("http://localhost:4000/outfit_details",{
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newAssociation)
+              })
+              .then((r) => {
+                setIsLoading(false);
+              if (r.ok) {
+                r.json()
+                    .then((data) => console.log(data))
+                    // .then((data) => setNewOutfitId(data.id))
+              } else {
+                r.json().then((err) => setErrors(err.errors));
+              }})
+      }
+      console.log(newOutfitId);
+      
+
 
   return (
     <form className="outfit-form" onSubmit={handleSubmit}>
@@ -104,14 +131,20 @@ console.log(newOutfitId)
       </FormField>
       </>
       )}
-
       { nicknameSubmitted ? (
-          <FormField>
+          <>
+        <FormField>
             <Label htmlFor="closet_items">Select Items</Label>
             <div className="item-options-container">
                 {closetItemOptions}
             </div>
-          </FormField>
+        </FormField>
+        <FormField>
+            <Button onClick={handleItemsSubmit} variant="fill" color="primary" type="submit">
+            {isLoading ? "Loading..." : "Submit"}
+            </Button>
+        </FormField>
+        </>
       ) : (null)
     }
     </form>

@@ -30,8 +30,10 @@ export default function OutfitContainer({ user }) {
 
 
   return (
-    <div>
-        <button onClick={() => setAddOutfit((addOutfit) => !addOutfit)}>{addOutfit ? "View My Outfits" : "Create an outfit!"}</button>
+    <div className="outfit-page-container">
+        <div className="form-toggle-button-container">
+             <button className="form-toggle-button" onClick={() => setAddOutfit((addOutfit) => !addOutfit)}>{addOutfit ? "View My Outfits" : "Create an outfit!"}</button>
+        </div>
         {addOutfit ? (
             <div>
                 <OutfitForm 
@@ -45,7 +47,7 @@ export default function OutfitContainer({ user }) {
         ) : ( 
         <>
         {/* <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
-        <div>{outfitList}</div> 
+        <div className="outfit-container">{outfitList}</div> 
         </>
         )}
     </div>

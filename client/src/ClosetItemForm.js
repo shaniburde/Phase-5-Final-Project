@@ -67,6 +67,12 @@ export default function ClosetItemForm({ user, addNewClosetItem, setAddItem, add
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
+      <FormField>
+        <Label htmlFor="category">Category</Label>
+        <select id="category"  onChange={(e) => setCategory(e.target.value)}>
+            {categoryOptions}
+        </select>
+      </FormField>
     <FormField>
         <Label htmlFor="image">Image URL</Label>
         <Input
@@ -76,12 +82,6 @@ export default function ClosetItemForm({ user, addNewClosetItem, setAddItem, add
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
-      </FormField>
-      <FormField>
-        <Label htmlFor="category">Category</Label>
-        <select id="category"  onChange={(e) => setCategory(e.target.value)}>
-            {categoryOptions}
-        </select>
       </FormField>
       <FormField>
         <Label htmlFor="color">Color</Label>

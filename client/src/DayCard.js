@@ -10,7 +10,7 @@ const DayCard = ({ reading }) => {
 
   return (
       <div className="col">
-        <div className="card" style={{borderRadius: "35px", padding: "6%", backgroundColor: "#E0F5F2", border: "none"}}>
+        <div className="card" style={{borderRadius: "35px", padding: "15px", border: "none", color: "#012F3C", backgroundColor: "#F7F7F3"}}>
             <h3 className="card-title">{moment(newDate).format('dddd')}</h3>
             <p className="text-muted">{moment(newDate).format('MMMM Do, h:mm a')}</p>
             <i className={imgURL}></i>
