@@ -18,12 +18,12 @@
 }
 
 .App{
-  padding: 1%;
+  /* padding: 1%; */
 }
-.header{
+.header-logo{
   text-align: center;
-  font-weight: bold;
-  font-family: "Helvetica Neue";
+  padding-top: 1%;
+  background-color: #F3F6FB;
 }
 .App-header{
   font-size: 65px;
@@ -44,9 +44,19 @@
   margin: 30px;
 }
 .logo{ 
-  width: 50%;
+  width: 35%;
   border-radius: 50%;
-  margin-bottom: 10%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.welcome{
+  background-color:#F3F6FB;
+  font-style: italic;
+  padding-left: 5%;
+  padding-bottom: 2%;
+  color: #012F3D;
+  font-weight: bold;
 }
 img{
    border-radius: 20px;
@@ -159,4 +169,40 @@ img{
 }
 .show-item-details{
   text-align: center;
+}
+.deleted-message{
+  text-align: center;
+  font-weight: bold;
+  padding: 15%;
+}
+.outfit-items-container{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 3rem;
+  gap: 34% 3%;
+}
+.outfit-items{
+  justify-content: center;
+  height: 30vh;
+  order: 3;
+  flex-basis: 30%;
+  transition: all .3s ease-in-out;
+  margin: 5%;
+}
+.outfit-items:hover{
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  opacity: 0.7;
+}
+.card{
+  margin: 2%;
+  transition: all .3s ease-in-out;
+}
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  opacity: 0.7;
 }

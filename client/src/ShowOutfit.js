@@ -63,12 +63,6 @@ export default function ShowOutfit() {
           <img className="outfit-items" src={item.image} alt="closet item belonging to a specific outfit"/> 
           </Link>
       )
-
-    
-
-
-
-    console.log(currentOutfit)
     
   return (
       
@@ -81,7 +75,7 @@ export default function ShowOutfit() {
             />
         ) : ( 
         <div>
-        { isDeleted ? (<h4>Outfit successfully removed! Click "My Outfits" to see your iconic 'fits.</h4>
+        { isDeleted ? (<h4 className="deleted-message">Outfit successfully removed! Click "My Outfits" to see your iconic 'fits</h4>
         ) : (
         <div>
                 <button className="closet-item-delete" onClick={handleDelete}>Delete this 'Fit</button>

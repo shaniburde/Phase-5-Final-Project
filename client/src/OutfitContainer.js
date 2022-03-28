@@ -45,7 +45,7 @@ export default function OutfitContainer({ user }) {
         ) : ( 
         <>
         {/* <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
-        <div className="row">{outfitList}</div> 
+        <div>{outfitList}</div> 
         </>
         )}
     </div>
