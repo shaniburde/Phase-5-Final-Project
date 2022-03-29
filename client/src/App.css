@@ -54,11 +54,11 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  transition: all .4s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 .logo:hover{
-  transform: scale(1.04);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transform: scale(1.07);
+  box-shadow: 0 0px 25px rgba(57, 100, 7, 0.418);
 }
 .welcome{
   background-color:#F7F7F3;
