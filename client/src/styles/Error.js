@@ -10,8 +10,8 @@ function Error({ children }) {
 }
 
 const Wrapper = styled.div`
-  color: #011F28;
-  background-color: #A7D2DB;
+  color: #F7F7F3;
+  background-color: #839478;
   border-radius: 6px;
   display: flex;
   padding: 8px;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 `;
 
 const Alert = styled.span`
-  background-color: white;
+  background-color: #5A6751;
   height: 30px;
   width: 30px;
   border-radius: 50%;

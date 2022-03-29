@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Label = styled.label`
-  color: #02262A;
+  color: #011F28;
   display: block;
   font-size: 1.2rem;
   font-weight: 700;

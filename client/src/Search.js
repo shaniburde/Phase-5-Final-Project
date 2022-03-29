@@ -6,7 +6,7 @@ export default function Search({ searchTerm, setSearchTerm}) {
         <input
         className="search-bar"
         type="text"
-        placeholder="Item description..."
+        placeholder="search . . ."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         />

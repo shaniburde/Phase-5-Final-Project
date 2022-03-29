@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <>
-    <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#F3F6FA"}}>
+    <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#F7F7F3"}}>
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src={Logo} className="header-logo"/>

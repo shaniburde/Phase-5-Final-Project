@@ -19,13 +19,7 @@
 
 .header-logo{
   width: 50%;
-  background-color: #F3F6FA;
-}
-.App-header{
-  font-size: 65px;
-  text-align: center;
-  color: rgb(86, 78, 206);
-  background-color: rgb(234, 148, 255);
+  background-color: #F7F7F3;
 }
 .login-form{
   text-align: center;
@@ -37,7 +31,7 @@
 }
 .app-description{
   font-family: 'Montserrat', sans-serif;
-  color: #F7F7F2;
+  color: #F7F7F3;
   font-weight: 700;
   padding-top: 5%;
   padding-right: 30%;
@@ -66,11 +60,11 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 .welcome{
-  background-color:#F3F6FA;
+  background-color:#F7F7F3;
   font-style: italic;
   color: #012F3D;
   padding-top: 10px;
-  margin-left: 35px;
+  margin-left: 15px;
   font-size: 15px;
 }
 img{
@@ -158,6 +152,14 @@ img{
   margin-top: 8%;
   margin-right: 5%;
   margin-left: 5%;
+}
+.outfit-details{
+  color: #011F28;
+  background-color: #011F28;
+}
+.outfit-details:hover{
+  color: #011F28;
+  text-decoration: none;
 }
 #nickname{
   width: 40%;
@@ -288,12 +290,12 @@ img{
   border-radius: 25px;
   padding: 1%;
   margin-bottom: 1%;
-  color: white;
+  color: rgb(255, 255, 255);
   outline: none;
   transition: all .3s ease-in-out;
 }
 .search-bar::placeholder{
-  color: white;
+  color: rgba(255, 255, 255, 0.616);
 }
 .search-bar:hover{
   background-color: rgb(151, 158, 151);

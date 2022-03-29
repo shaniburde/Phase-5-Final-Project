@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import { Button } from "./styles";
-import Logo from "./images/MissFit-Logo-Blue.png";
+import Logo from "./images/MissFit-Final-Logo.png";
 
 
 
@@ -14,6 +14,8 @@ function Login({ onLogin }) {
     <div className="login-form">
     <div>
       <img src={Logo} alt="Logo" className="logo" />
+      <br/>
+      <br/>
       <br/>
       {showLogin ? (
         <>
