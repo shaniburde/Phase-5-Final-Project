@@ -13,6 +13,7 @@
     transform: rotate(360deg);
   }
 } */
+
 *{
   font-family: 'Poppins', sans-serif;
 }
@@ -66,6 +67,15 @@
   padding-top: 10px;
   margin-left: 15px;
   font-size: 15px;
+}
+.menu-toggler{
+  margin-left: 15px;
+  transition: all .3s ease-in-out;
+}
+.menu-toggler:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.795);
+  opacity: 0.7;
 }
 img{
    border-radius: 20px;
