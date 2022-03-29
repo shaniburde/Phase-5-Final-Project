@@ -37,10 +37,13 @@ const ButtonBase = styled.button`
 const FillButton = styled(ButtonBase)`
   background-color: #043645;
   color: white;
+  transition: all .3s ease-in-out;
 
   &:hover {
     color: #F4F4F6;
     opacity: 0.9;
+    transform: scale(0.96);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
   }
 `;
 
@@ -48,9 +51,12 @@ const OutlineButton = styled(ButtonBase)`
   background-color: white;
   color: #F6E8DD;
   border: 2px solid var(--main);
+  transition: all .3s ease-in-out;
 
   &:hover {
     background: hsl(235deg 85% 90%);
+    transform: scale(0.96);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
   }
 `;
 

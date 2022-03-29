@@ -10,7 +10,7 @@ export default function ShowClosetItem() {
     const [currentItem, setCurrentItem] = useState('')
     const [outfitData, setOutfitData] = useState([])
     const [outfitDetailData, setOutfitDetailData] = useState([])
-    const [selectedOutfit, setSelectedOutfit] = useState()
+    const [selectedOutfit, setSelectedOutfit] = useState(1)
     const [showOutfitOptions, setShowOutfitOptions] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [isDeleted, setIsDeleted] = useState(false)
@@ -114,7 +114,8 @@ export default function ShowClosetItem() {
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
     let dateItem = new Date(dateSplit).toLocaleDateString('en-US', options);
 
-    console.log(outfitDetailData)
+    // console.log(outfitDetailData)
+    console.log(selectedOutfit)
     
   return (
       
@@ -140,21 +141,28 @@ export default function ShowClosetItem() {
             <p className="item-date-purchased">Purchased: {dateItem}</p>
             <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
             <div className="button-div">
+                { showOutfitOptions ? (null) : (
+                <>
                 <button className="controller-button" onClick={handleDelete}>Delete</button>
                 <button className="controller-button" onClick={() => setIsEditing((isEditing) => !isEditing)}>Edit</button>
-                <button className="controller-button" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to an Outfit" }</button>
+                </>
+                )}
+                <button className="controller-button" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to 'fit" }</button>
+                </div>
                 {showOutfitOptions ? 
                 (<form onSubmit={handleSubmit}>
+                    <br/>
+                    <br/>
+                    <br/>
                     <FormField>
                     <Label htmlFor="outfit-option">Outfit Nickname</Label>
-                    <select id="outfit-option"  onClick={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
+                    <select id="outfit-option" onClick={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
                     </FormField>
-                    <Button variant="fill" color="primary" type="submit">
+                    <button className="controller-button" style={{padding: "10px", fontSize: "15px", margin: "0px"}}>
                         {isLoading ? "Loading..." : "Add to Outfit"}
-                    </Button>
+                    </button>
                 </form>
             ) : (null)} 
-            </div>
             </div>
             </div>
             )}

@@ -104,7 +104,8 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
   return (
     <form className="outfit-form" onSubmit={handleSubmit}>
     <FormField>
-        <Label htmlFor="nickname">Nickname:</Label>
+    <h2 className="form-title">Create a new outfit</h2>
+        <Label htmlFor="nickname">Nickname</Label>
         <Input
           type="text"
           id="nickname"

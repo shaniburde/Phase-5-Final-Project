@@ -59,6 +59,7 @@ export default function EditClosetItem({ setIsEditing, handleUpdateClosetItem, c
   return (                                                 
     <form className="edit-closet-item-form" onSubmit={handleSubmit}>
         <FormField>
+        <h2 className="form-title">Edit this item</h2>
             <Label htmlFor="image">Image URL</Label>
             <Input
             type="text"
@@ -130,11 +131,11 @@ export default function EditClosetItem({ setIsEditing, handleUpdateClosetItem, c
             onChange={(e) => setUpdatedPurchasePrice(e.target.value)}
             />
         </FormField>
-        
-            <Button variant="fill" color="primary" type="submit">
+        <FormField >
+            <button className="controller-button" style={{padding: "10px", fontSize: "20px", fontWeight: "bold"}} type="submit">
             {isLoading ? "Loading..." : "Save"}
-            </Button>
-        
+            </button>
+        </FormField>
         <FormField>
             {errors.map((err) => (
             <Error key={err}>{err}</Error>

@@ -11,7 +11,11 @@ const Input = styled.input`
   border: none;
   border-radius: 25px;
   background-color: #F7F7F3;
-  // opacity: 0.6;
+  transition: all .4s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.35);
+  }
 `;
 
 export default Input;

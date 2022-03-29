@@ -83,6 +83,13 @@ img{
    height: 100%;
    object-fit: cover;
 }
+select{
+  border-radius: 15px; 
+  background-color: #F7F7F3;
+  padding: 10px; 
+  border: none;
+}
+
 .item-image{
   border-radius: 20px;
   width: 100%;
@@ -113,12 +120,21 @@ img{
   background-color: #D7DBC2;
   padding-bottom: 6rem;
 }
+.edit-closet-item-form{
+  align-items: center;
+  text-align: center;
+  padding-right: 25%;
+  padding-left: 25%;
+  padding-top: 5%;
+}
 .outfit-page-container{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-top: 3rem;
-  padding-bottom: 8rem;
+  padding-top: 3%;
+  padding-bottom: 30%;
+  padding-right: 5%;
+  padding-left: 5%;
   background-color: #D7DBC2;
 }
 .outfit-container{
@@ -162,6 +178,13 @@ img{
   text-decoration: none;
   text-align: center;
   color: #A0714F;
+}
+.form-title{
+  padding-bottom: 50px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 3px;
+  word-spacing: 10px;
 }
 .outfit-form{
   padding-bottom: 80px;
@@ -288,12 +311,12 @@ img{
   color: #555F45;
   background-color: #F7F7F3;
   border: none;
-  border-radius: 15px;
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: 5%;
-  margin-left: 5%;
-  font-size: 12px;
+  border-radius: 100px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin-right: 2%;
+  margin-left: 2%;
+  font-size: 15px;
   transition: all .3s ease-in-out;
 }
 .controller-button:hover{
@@ -303,6 +326,8 @@ img{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.589);
 }
 .button-div{
+  height: 5vh;
+  width: 80vh;
   display: flex;
   flex-direction: row;
   position: absolute;
