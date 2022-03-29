@@ -140,13 +140,9 @@ export default function ShowClosetItem() {
             <p className="item-date-purchased">Purchased: {dateItem}</p>
             <p className="item-purchase-price">Purchase price: ${purchase_price?.toFixed(2)}</p>
             <div className="button-div">
-                <button className="closet-item-buttons" onClick={handleDelete}>Delete</button>
-                <button className="closet-item-buttons" onClick={() => setIsEditing((isEditing) => !isEditing)}>
-                <span role="img" aria-label="edit">
-                    ✏️
-                </span>
-                </button>
-                <button className="closet-item-buttons" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to an Outfit" }</button>
+                <button className="controller-button" onClick={handleDelete}>Delete</button>
+                <button className="controller-button" onClick={() => setIsEditing((isEditing) => !isEditing)}>Edit</button>
+                <button className="controller-button" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to an Outfit" }</button>
                 {showOutfitOptions ? 
                 (<form onSubmit={handleSubmit}>
                     <FormField>

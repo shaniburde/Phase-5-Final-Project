@@ -61,20 +61,6 @@ export default function NavBar({ user, setUser }) {
     </>) : (null)}
   </div>
 </nav>
-    
-    
-         {/* <div className="nav-bar">
-            <div>
-            <p className="welcome">Welcome, {user.username}!</p>
-            <Link  exact to="/" onClick={handleLogoutClick} className="logout-button">Logout</Link>
-            </div>
-            <Link exact to="/about" className="nav-button">About</Link>
-            <br/>
-            <Link exact to="/my_closet" className="nav-button">My Closet</Link>
-            <br/>
-            <Link exact to="/my_outfits" className="nav-button">My Outfits</Link>
-            <br/>
-        </div> */}
-    </>
+</>
   )
 }

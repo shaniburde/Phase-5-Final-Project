@@ -109,6 +109,10 @@ img{
   order: 3;
   flex-basis: 20%;
 }
+.closet-item-details{
+  background-color: #D7DBC2;
+  padding-bottom: 6rem;
+}
 .outfit-page-container{
   display: flex;
   flex-direction: column;
@@ -126,12 +130,15 @@ img{
 
 }
 .outfit-items-container{
+  background-color: #D7DBC2;
   display: flex;
   flex-direction: column;
   order: 3;
   flex-basis: 10%;
+  margin: 0;
 }
 .outfit-item{
+  background-color: #D7DBC2;
   display: flex;
   flex-direction: row;
   height: 30vh;
@@ -170,6 +177,11 @@ img{
 .outfit-details:hover{
   color: #011F28;
   text-decoration: none;
+}
+.outfit-details-background{
+  background-color: #D7DBC2;
+  padding-bottom: 30%;
+  padding-top: 2%;
 }
 #nickname{
   width: 40%;
@@ -223,7 +235,7 @@ img{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   gap: 34% 3%;
 }
 .outfit-items{
@@ -272,21 +284,37 @@ img{
   font-size: 25px;
   padding-bottom: 10%;
 }
-.closet-item-buttons{
+.controller-button{
+  color: #555F45;
+  background-color: #F7F7F3;
   border: none;
   border-radius: 15px;
-  padding-right: 15%;
-  padding-left: 15%;
-  margin-right: 3%;
-  margin-left: 3%;
-  font-size: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: 5%;
+  margin-left: 5%;
+  font-size: 12px;
+  transition: all .3s ease-in-out;
+}
+.controller-button:hover{
+  background-color: #555F45;
+  color: #F7F7F3;
+  transform: scale(0.94);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.589);
 }
 .button-div{
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   position: absolute;
   bottom: 0;
-  float: left;
+}
+.outfit-button-div{
+  display: flex;
+  flex-direction: row;
+  padding-top: 3%;
+  height: 10vh;
+  float: right;
+  margin-right: 7%;
 }
 .search-container{
   align-items: center;
@@ -294,7 +322,7 @@ img{
   text-align: center;
 }
 .search-bar{
-  width: 40%;
+  width: 30%;
   background-color: #839478;
   border: none;
   border-radius: 25px;
@@ -302,6 +330,7 @@ img{
   margin-bottom: 1%;
   color: rgb(255, 255, 255);
   outline: none;
+  margin-bottom: 45%;
   transition: all .3s ease-in-out;
 }
 .search-bar::placeholder{
@@ -329,4 +358,17 @@ img{
   background-color: #093341;
   transform: scale(0.94);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.589);
+}
+.outfit-nickname{
+  padding-top: 3%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #242717;
+}
+.outfit-category{
+  font-family: 'Montserrat', sans-serif;
+  color: #555F45;
+  font-size: 24px;
+  padding-bottom: 3%;
 }

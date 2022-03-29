@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Search({ searchTerm, setSearchTerm}) {
+export default function SearchOutfits({ searchTerm, setSearchTerm}) {
   return (
       <div className="search-container">
         <input
