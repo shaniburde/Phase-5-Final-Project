@@ -75,7 +75,7 @@ export default function ShowOutfit() {
             />
         ) : ( 
         <div>
-        { isDeleted ? (<h4 className="deleted-message">Outfit successfully removed! Click "My Outfits" to see your iconic 'fits</h4>
+        { isDeleted ? (<><h1 className="deleted-message">Outfit Successfully Deleted!</h1><p className="deleted-message" style={{paddingTop: "0"}}>Click "My Outfits" to view your iconic looks.</p></>
         ) : (
         <div>
                 <h3 className="outfit-nickname">{nickname}</h3>

@@ -33,9 +33,9 @@
   font-family: 'Montserrat', sans-serif;
   color: #F7F7F3;
   font-weight: 700;
-  padding-top: 5%;
-  padding-right: 30%;
-  padding-left: 30%;
+  padding-top: 1%;
+  padding-right: 20%;
+  padding-left: 20%;
 }
 .about{
   text-align: center;
@@ -46,6 +46,29 @@
 }
 .weather-title{
   color: #F7F7F2;
+}
+.weather-button{
+  background-color: #758065;
+  color: #F7F7F3;
+  border: none;
+  border-radius: 100px;
+  padding: 20px;
+  margin-right: 2%;
+  margin-left: 2%;
+  font-size: 20px;
+  transition: all .3s ease-in-out;
+}
+.weather-button:hover{
+  background-color: #555F45;
+  color: #F7F7F3;
+  transform: scale(0.94);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.589);
+}
+button:focus{
+  outline: none;
+}
+input:focus, textarea:focus, select:focus{
+  outline: none;
 }
 .logo{ 
   width: 35%;

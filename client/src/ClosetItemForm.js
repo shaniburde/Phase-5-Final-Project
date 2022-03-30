@@ -54,6 +54,7 @@ export default function ClosetItemForm({ user, addNewClosetItem, setAddItem, add
               } else {
                 r.json().then((err) => setErrors(err.errors));
               }})
+              // .then(navigate(`/closet_items/${id}`, { replace: true }))
               setAddItem((addItem) => !addItem)
               setImage("")
               setColor("")
@@ -68,6 +69,7 @@ export default function ClosetItemForm({ user, addNewClosetItem, setAddItem, add
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <FormField>
+      <h2 className="form-title">Add an item</h2>
         <Label htmlFor="category">Category</Label>
         <select id="category"  onChange={(e) => setCategory(e.target.value)}>
             {categoryOptions}

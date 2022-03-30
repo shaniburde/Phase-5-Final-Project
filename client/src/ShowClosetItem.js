@@ -129,7 +129,7 @@ export default function ShowClosetItem() {
         ) : (
         <div>
             { isDeleted ? 
-            (<p>Item Deleted!</p>) : (
+            (<><h1 className="deleted-message">Item Successfully Deleted!</h1><p className="deleted-message" style={{paddingTop: "0"}}>Click "My Closet" to view your existing items.</p></>) : (
         <div className="show-item-details-container">
         <div className="show-item-details-image">
             <img src={image} alt={description}/>
