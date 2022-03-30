@@ -16,6 +16,17 @@ export default function NavBar({ user, setUser }) {
     });
   }
 
+  const linkStyle = {
+    margin: ".5rem",
+    textDecoration: "none",
+    border: "none",
+    color: '#242717',
+    backgroundColor: "#B9C3AC",
+    padding: "10px",
+    borderRadius: "15px",
+  };
+  
+
   return (
     <>
     <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#F7F7F3"}}>
@@ -25,35 +36,34 @@ export default function NavBar({ user, setUser }) {
         <p className="welcome">Welcome, {user.username}!</p>
       </a>
       {show ? (null) : (
-      <button onClick={toggleShow} type="button"
-      className="menu-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-      style={{border: "none", backgroundColor: "#D7DBC2", borderRadius: "5px"}}>
-        <span class="navbar-toggler-icon"></span>
-      </button>)}
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item" className="menu-toggler"> 
+          <a class="nav-link">
+              <span class="navbar-toggler-icon" onClick={toggleShow} ></span>
+          </a>
+          </li>
+        </ul>
+      )}
       {show ? (
         <>
         <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#"><NavLink  exact to="/" onClick={handleLogoutClick} className="nav-button">Logout</NavLink></a>
+            <a class="nav-link" href="#"><NavLink style={linkStyle} exact to="/" onClick={handleLogoutClick} className="nav-button">Logout</NavLink></a>
           </li>
           <br/>
           <li class="nav-item">
-          <a class="nav-link" href="#"><NavLink exact to="/about" className="nav-button">About</NavLink></a>
+          <a class="nav-link" href="#"><NavLink style={linkStyle} to="/about" className="nav-button">About</NavLink></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><NavLink exact to="/my_closet" className="nav-button">My Closet</NavLink></a>
+            <a class="nav-link" href="#"><NavLink style={linkStyle}  to="/my_closet" className="nav-button">My Closet</NavLink></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><NavLink exact to="/my_outfits" className="nav-button">My Outfits</NavLink></a>
+            <a class="nav-link" href="#"><NavLink style={linkStyle} to="/my_outfits" className="nav-button">My Outfits</NavLink></a>
           </li>
-          <li class="nav-item"> 
-          <a class="nav-link" href="#"><button onClick={toggleShow} 
-          className="menu-toggler"
-          type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-          style={{border: "none", backgroundColor: "#D7DBC2", borderRadius: "5px"}}>
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <li class="nav-item" className="menu-toggler"> 
+          <a class="nav-link">
+              <span class="navbar-toggler-icon" onClick={toggleShow} ></span>
           </a>
           </li>
         </ul>

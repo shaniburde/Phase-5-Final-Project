@@ -1,6 +1,6 @@
 import React from 'react';
-import apiConfig from './apiKeys';
 import DayCard from './DayCard';
+// import apiConfig from './apiKeys';
 
 class WeekContainer extends React.Component {
     state = {

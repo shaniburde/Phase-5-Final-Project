@@ -17,7 +17,6 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
-
 .header-logo{
   width: 50%;
   background-color: #F7F7F3;
@@ -43,7 +42,7 @@
   font-size: 20px;
   padding: 30px;
   padding-bottom: 30%;
-  background-color: #012F3C;
+  background-color: #555F45;
 }
 .weather-title{
   color: #F7F7F2;
@@ -69,13 +68,22 @@
   font-size: 15px;
 }
 .menu-toggler{
-  margin-left: 15px;
-  transition: all .3s ease-in-out;
+  margin-left: 25px;
+  border-radius: 30%;
+  transition: all .4s ease-in-out;
 }
 .menu-toggler:hover{
-  transform: scale(1.05);
-  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.795);
-  opacity: 0.7;
+  background-color: #D7DBC2;
+  opacity: .59;
+}
+.nav-button{
+  font-weight: bold;
+  transition: all .4s ease-in-out;
+}
+.nav-button:hover{
+  box-shadow: 0 4px 0px #535F45;
+  font-size: 15px;
+  opacity: .59;
 }
 img{
    border-radius: 20px;
