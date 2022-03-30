@@ -174,7 +174,7 @@ select{
   display: flex;
   flex-direction: column;
   gap: 10% 10%;
-
+  margin-top: 3rem;
 }
 .outfit-items-container{
   background-color: #D7DBC2;
@@ -369,8 +369,10 @@ select{
   flex-direction: row;
   padding-top: 3%;
   height: 10vh;
+  width: 30vh;
   float: right;
-  margin-right: 7%;
+  margin-top: 5%;
+  margin-right: 20%;
 }
 .search-container{
   align-items: center;
