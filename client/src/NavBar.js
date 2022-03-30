@@ -53,7 +53,7 @@ export default function NavBar({ user, setUser }) {
           </li>
           <br/>
           <li class="nav-item">
-          <a class="nav-link" href="#"><NavLink style={linkStyle} to="/about" className="nav-button">About</NavLink></a>
+          <a class="nav-link" href="#"><NavLink style={linkStyle} to="/" className="nav-button">About</NavLink></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><NavLink style={linkStyle}  to="/my_closet" className="nav-button">My Closet</NavLink></a>
