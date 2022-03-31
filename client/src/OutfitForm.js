@@ -5,7 +5,7 @@ import { Button, Error, Input, FormField, Label } from "./styles";
 export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit }) {
     const [nickname, setNickname] = useState("")
     const [nicknameSubmitted, setNicknameSubmitted] = useState(false)
-    const [category, setCategory] = useState()
+    const [category, setCategory] = useState("")
     const [categoryData, setCategoryData] = useState([])
     const [closetItems, setClosetItems] = useState([])
     const [outfitItems, setOutfitItems] = useState([])
@@ -30,18 +30,18 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
     <option key={id} value={id}>{outfit_type}</option> 
     )
 
-    const closetItemOptions = closetItems.map(({ id, image, description }) => 
-        <div className="item-options">
-            <input
-            id={id}
-            value={id}
-            name={description}
-            type="checkbox"
-            onChange={(e) => console.log(e.target.value)}
-            />
-            <img key={id} src={image} alt={description}/> 
-        </div>
-    )
+    // const closetItemOptions = closetItems.map(({ id, image, description }) => 
+    //     <div className="item-options">
+    //         <input
+    //         id={id}
+    //         value={id}
+    //         name={description}
+    //         type="checkbox"
+    //         onChange={(e) => console.log(e.target.value)}
+    //         />
+    //         <img key={id} src={image} alt={description}/> 
+    //     </div>
+    // )
     
 
    
@@ -66,6 +66,8 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
                     // .then((data) => console.log(data.id))
                     .then((data) => setNewOutfitId(data.id))
                     .then(setNicknameSubmitted((nicknameSubmitted) => !nicknameSubmitted))
+                    .then(setNickname(""))
+                    .then(setCategory(""))
               } else {
                 r.json().then((err) => setErrors(err.errors));
               }})
@@ -120,7 +122,7 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
             {categoryOptions}
         </select>
       </FormField>
-        { nicknameSubmitted ? (null) : (
+        { nicknameSubmitted ? (<p>New Outfit Created! Go to "My Closet" to completed your vision!</p>) : (
         <>
         <Button variant="fill" color="primary" type="submit">
           {isLoading ? "Loading..." : "Submit"}
@@ -132,7 +134,7 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
       </FormField>
       </>
       )}
-      { nicknameSubmitted ? (
+      {/* { nicknameSubmitted ? (
           <>
         <FormField>
             <Label htmlFor="closet_items">Select Items</Label>
@@ -147,7 +149,7 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
         </FormField>
         </>
       ) : (null)
-    }
+    } */}
     </form>
   )
 }

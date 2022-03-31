@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Error, Input, FormField, Label } from "./styles";
+import { Error, Input, FormField, Label } from "./styles";
 
 
 
@@ -8,15 +8,14 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
     const currentOutfitDetail = (outfit_details.map(({id}) => id ))
     const [outfitItemData, setOutfitItemData] = useState(currentOutfitDetail)
     const [updatedNickname, setUpdatedNickname] = useState(nickname)
-    const [updatedCategory, setUpdatedCategory] = useState(outfit_category)
+    const [updatedCategory, setUpdatedCategory] = useState(outfit_category["id"])
     const [categoryData, setCategoryData] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     
-    console.log(outfitItemData)
-    // const currentOutfitDetail = (outfit_details.map(({id}) => id ))
-    // const [updatedOutfitDetail, setUpdatedOutfitDetail] = useState(currentOutfitDetail)
-    // console.log(updatedOutfitDetail)
+    console.log(outfit_category["id"])
+    console.log(updatedCategory)
+   
 
     useEffect(() => {
         fetch("/outfit_categories")
@@ -49,10 +48,12 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
     }
 
     const outfit_items = outfit_details.map(({id, closet_item}) => 
-    <FormField className="outfit-items" key={id}>
-        <Button className="closet-item-delete" onClick={() => handleDelete(id)}>Remove from this Outfit</Button>
-        <img src={closet_item.image} alt={closet_item.description} className="item-image"/>
-    </FormField>
+    <>
+    <div className="closet-item" key={id}>
+        <button className="controller-button-edit-outfit" onClick={() => handleDelete(id)}>Remove from this Outfit</button>
+        <img src={closet_item.image} alt={closet_item.description} className="item-image" style={{hover: "hidden"}}/>
+    </div>
+    </>
     )
 
 
@@ -73,19 +74,21 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
           body: JSON.stringify(editedOutfit),
         })
         .then((r) => {
-            setIsLoading(false);
-            setIsEditing(false);
+          setIsEditing(false);
+          setIsLoading(false);
+          window.location.reload();
           if (r.ok) {
             r.json().then((updatedOutfit) => handleUpdateOutfit(updatedOutfit))
-          } else {
-            r.json().then((err) => setErrors(err.errors));
-          }})
+            } else {
+              r.json().then((err) => setErrors(err.errors));
+            }})
       }
 
 
   return (                                                 
-    <form className="edit-closet-item-form" onSubmit={handleSubmit}>
+    <form className="edit-outfit-form" onSubmit={handleSubmit}>
         <FormField>
+        <h2 className="form-title">Edit outfit</h2>
             <Label htmlFor="nickname">Nickname</Label>
             <Input
             type="text"
@@ -98,23 +101,21 @@ export default function EditOutfit({ setIsEditing, handleUpdateOutfit, outfit })
         </FormField>
         <FormField>
             <Label htmlFor="category">Category</Label>
-            <select id="category"  onChange={(e) => setUpdatedCategory(e.target.value)}>
+            <select id="category" value={updatedCategory} onChange={(e) => setUpdatedCategory(e.target.value)}>
                 {categoryOptions}
             </select>
         </FormField>
-        <div className="outfit-items-container" >{outfit_items}</div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-            <Button variant="fill" color="primary" type="submit">
+            <button className="controller-button-edit-outfit" style={{padding: "2%"}} variant="fill" color="primary" type="submit">
             {isLoading ? "Loading..." : "Save"}
-            </Button>
+            </button>
         <FormField>
             {errors.map((err) => (
-            <Error key={err}>{err}</Error>
+              <Error key={err}>{err}</Error>
             ))}
+        </FormField>
+        <FormField>
+          <Label htmlFor="category">Items</Label>
+          <div className="outfit-items-container" style={{paddingBottom: "8%"}} >{outfit_items}</div>
         </FormField>
         </form>
   )
