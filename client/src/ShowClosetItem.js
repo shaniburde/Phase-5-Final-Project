@@ -145,9 +145,9 @@ export default function ShowClosetItem() {
                 <>
                 <button className="controller-button" onClick={handleDelete}>Delete</button>
                 <button className="controller-button" onClick={() => setIsEditing((isEditing) => !isEditing)}>Edit</button>
+                <button className="controller-button" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to 'fit" }</button>
                 </>
                 )}
-                <button className="controller-button" onClick={handleAddToOutfit}>{showOutfitOptions ? "Go Back" : "Add to 'fit" }</button>
                 </div>
                 {showOutfitOptions ? 
                 (<form onSubmit={handleSubmit}>
@@ -155,12 +155,19 @@ export default function ShowClosetItem() {
                     <br/>
                     <br/>
                     <FormField>
-                    <Label htmlFor="outfit-option">Outfit Nickname</Label>
+                    <h5>Outfit Nickname</h5>
+                    <br/>
                     <select id="outfit-option" onClick={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
                     </FormField>
                     <button className="controller-button" style={{padding: "10px", fontSize: "15px", margin: "0px"}}>
                         {isLoading ? "Loading..." : "Add to Outfit"}
                     </button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <button className="controller-button" onClick={handleAddToOutfit}>Cancel</button>
                 </form>
             ) : (null)} 
             </div>

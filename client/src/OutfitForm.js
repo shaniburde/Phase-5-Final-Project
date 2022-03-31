@@ -72,34 +72,35 @@ export default function OutfitForm({ user, addNewOutfit, addOutfit, setAddOutfit
                 r.json().then((err) => setErrors(err.errors));
               }})
             //   setAddOutfit((addOutfit) => !addOutfit)
-            //   setNickname("")  
+  
       }
-      function handleItemsSubmit(e){
-        e.preventDefault();
-        setIsLoading(true);
-        // let itemId = outfitItems.map((id) => 
-        //  id )
-        const newAssociation = {
-            outfit_id: newOutfitId,
-            closet_item_id: outfitItems.id, 
-            // THIS ABOVE LINE IS THE PROBLEM
-        }
-        fetch("http://localhost:4000/outfit_details",{
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newAssociation)
-              })
-              .then((r) => {
-                setIsLoading(false);
-              if (r.ok) {
-                r.json()
-                    .then((data) => console.log(data))
-                    // .then((data) => setNewOutfitId(data.id))
-              } else {
-                r.json().then((err) => setErrors(err.errors));
-              }})
-      }
-      console.log(newOutfitId);
+
+      // function handleItemsSubmit(e){
+      //   e.preventDefault();
+      //   setIsLoading(true);
+      //   // let itemId = outfitItems.map((id) => 
+      //   //  id )
+      //   const newAssociation = {
+      //       outfit_id: newOutfitId,
+      //       closet_item_id: outfitItems.id, 
+      //       // THIS ABOVE LINE IS THE PROBLEM
+      //   }
+      //   fetch("http://localhost:4000/outfit_details",{
+      //           method: 'POST',
+      //           headers: { 'Content-Type': 'application/json' },
+      //           body: JSON.stringify(newAssociation)
+      //         })
+      //         .then((r) => {
+      //           setIsLoading(false);
+      //         if (r.ok) {
+      //           r.json()
+      //               .then((data) => console.log(data))
+      //               // .then((data) => setNewOutfitId(data.id))
+      //         } else {
+      //           r.json().then((err) => setErrors(err.errors));
+      //         }})
+      // }
+      // console.log(newOutfitId);
       
 
 
