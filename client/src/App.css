@@ -452,3 +452,12 @@ select{
     color: #F7F7F3;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.589);
  }
+ footer{
+   background-color: #242717;
+   color: #F7F7F3;
+   text-align: center;
+   padding: 7px;
+   opacity: 0.8;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 12px;
+ }
