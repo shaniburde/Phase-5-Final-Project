@@ -10,7 +10,7 @@ export default function ShowClosetItem() {
     const [currentItem, setCurrentItem] = useState('')
     const [outfitData, setOutfitData] = useState([])
     const [outfitDetailData, setOutfitDetailData] = useState([])
-    const [selectedOutfit, setSelectedOutfit] = useState(1)
+    const [selectedOutfit, setSelectedOutfit] = useState("")
     const [showOutfitOptions, setShowOutfitOptions] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [isDeleted, setIsDeleted] = useState(false)
@@ -157,7 +157,7 @@ export default function ShowClosetItem() {
                     <FormField>
                     <h5>Outfit Nickname</h5>
                     <br/>
-                    <select id="outfit-option" onClick={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
+                    <select id="outfit-option" onChange={(e) => setSelectedOutfit(e.target.value)}>{outfitOptions}</select>
                     </FormField>
                     <button className="controller-button" style={{padding: "10px", fontSize: "15px", margin: "0px"}}>
                         {isLoading ? "Loading..." : "Add to Outfit"}
